@@ -4,17 +4,23 @@ function Navbar() {
   return (
     <nav >
       <div >
-        <div >
-          <Link to="/" >
+        
+        <Link to="/" >
             Home
-          </Link>
-          <Link to="/inventoryItems" >
+        </Link>
+        <Link to="/inventoryItems" >
             InventoryItems
-          </Link>
-          <Link to="/sharedItems" >
+        </Link>
+        <Link to="/sharedItems" >
             SharedItems
-          </Link>
-        </div>
+        </Link>
+        <Link to="/login" >
+            Login
+        </Link>
+        <Link to="/register" >
+            Register
+        </Link>
+      
       </div>
     </nav>
   )

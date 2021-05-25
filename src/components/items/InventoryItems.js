@@ -1,10 +1,9 @@
 import React from 'react'
 
 
-function InventoryItems () {
+function InventoryItems() {
   return (
-    <h1> Inventory Items </h1>
-  )
+    <h1> User/'s inventory </h1>)
 }
 
 export default InventoryItems
