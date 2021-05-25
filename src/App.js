@@ -7,12 +7,6 @@ import InventoryItems from './components/items/InventoryItems'
 import UserRecipes from './components/items/Recipes'
 import Nav from './components/common/Nav'
 
-
-
-
-
-
-
 function App() {
   return (
     <Router>
