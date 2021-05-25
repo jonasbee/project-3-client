@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-function SharedItems ) {
+function SharedItems () {
   return (
     <h1> Inventory Items </h1>
   )
 }
 
-export default InventoryItems
+export default SharedItems

@@ -1,33 +1,33 @@
-import React from 'react'
+// import React from 'react'
 
 
-function UserRecipes () {
-  const [recipes,setRecipes]=React.useState([])
+// function UserRecipes () {
+//   const [recipes,setRecipes]=React.useState([])
 
-  React.useEffect(()=>{
-    const getData = async () => {
-      const res = await fetch('/api/recipes')
-      const json = await res.json()
-      setRecipes(json)
-    }
-    getData()
-  } ,[])
+//   React.useEffect(()=>{
+//     const getData = async () => {
+//       const res = await fetch('/api/recipes')
+//       const json = await res.json()
+//       setRecipes(json)
+//     }
+//     getData()
+//   } ,[])
   
 
-  return (
+//   return (
 
-  <>
-  {recipes.map(recipe=>)
-  <RecipeCard
-  key={recipes._id}
+//   <>
+//   {recipes.map(recipe=>)
+//   <RecipeCard
+//   key={recipes._id}
 
 
 
-  }
+//   }
   
-  </>
+//   </>
     
-  )
+//   )
 
-}
-export default UserRecipes
+// }
+// export default UserRecipes
