@@ -3,7 +3,7 @@ import React from 'react'
 
 function SharedItems () {
   return (
-    <h1> Inventory Items </h1>
+    <h1> SharedItems/map </h1>
   )
 }
 
