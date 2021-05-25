@@ -40,7 +40,7 @@ function Register() {
       console.log(err)
     }
 
-    // alert(`Submitting form ${JSON.stringify(formdata, null, 2)}`)
+    alert(`Submitting form ${JSON.stringify(formdata, null, 2)}`)
   }
 
   return (
@@ -96,9 +96,94 @@ function Register() {
                   id="passwordConfirmation"
                   type="password"
                   placeholder="Password Conformation"
-                  onChange={handleChange}/>
+                  onChange={handleChange} />
               </div>
               
+              <div >
+                <label htmlFor="postalCode">
+                Post Code 
+                </label>
+                <div >
+                  <input 
+                    name="postalCode" id="postalCode"
+                    type="postalCode"
+                    onChange={handleChange}
+                    placeholder="Post Code" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="city">
+                City
+                </label>
+                <div >
+                  <input 
+                    name="city" id="city"
+                    type="city"
+                    onChange={handleChange}
+                    placeholder="City" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="street">
+                Street
+                </label>
+                <div >
+                  <input 
+                    name="street" id="street"
+                    type="street"
+                    onChange={handleChange}
+                    placeholder="Street" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="password">
+                Street Number
+                </label>
+                <div >
+                  <input 
+                    name="streetNo" id="streetNo"
+                    type="streetNo"
+                    onChange={handleChange}
+                    placeholder="street number" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="region">
+                Region
+                </label>
+                <div >
+                  <input 
+                    name="region" id="region"
+                    type="region"
+                    onChange={handleChange}
+                    placeholder="Region" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="password">
+                Country
+                </label>
+                <div >
+                  <input 
+                    name="country" id="country"
+                    type="country"
+                    onChange={handleChange}
+                    placeholder="Country" />
+                </div>
+              </div>
+              <div >
+                <label htmlFor="region">
+                Food preference
+                </label>
+                <div >
+                  <input 
+                    name="preference" id="preference"
+                    type="preference"
+                    onChange={handleChange}
+                    placeholder="Food preferences" />
+                </div>
+              </div>
+              <div ></div>
             </div>
             <div >
               <button type="submit" >Register Me!</button>
