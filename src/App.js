@@ -15,7 +15,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/sharedItems' component={SharedItems}/>
+        <Route path='/sharedItems' component={SharedItems} />
         {/* <Route path='/:userId/recipes' component={UserRecipes} />
         <Route path='/:userId/items' component={InventoryItems} /> */}
         {/* <Route path='/register' component={Register} /> */}
