@@ -6,6 +6,10 @@ export function getAllItems() {
   return axios.get(`${baseUrl}/items`)
 }
 
+export function getAllRecipes() {
+  return axios.get(`${baseUrl}/recipes`)
+}
+
 
 // const baseUrl = 'http://localhost:3000'
 

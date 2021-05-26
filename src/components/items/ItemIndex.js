@@ -3,14 +3,14 @@ import { getAllItems } from '../../lib/api'
 import ItemCard from './ItemCard'
 
 function ItemIndex () {
-  const [item, setItem] = React.useState([])
+  const [items, setItems] = React.useState([])
 
   React.useEffect(() => {
     const getData = async () => {
       try {
         // ? getAllItems get request from lib
         const { data } = await getAllItems()
-        setItem(data)
+        setItems(data)
       } catch (e) {
         console.log(e)
       }
@@ -22,8 +22,8 @@ function ItemIndex () {
     <section className='section'>
       <div className='container'>
         <div className="columns is-multiline">
-          {item ? (
-            item.map(item => (
+          {items ? (
+            items.map(item => (
               <ItemCard 
                 key={item._id} 
                 name={item.name} 

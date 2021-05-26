@@ -23,7 +23,9 @@ function Navbar() {
         <Link to="/register" >
             Register
         </Link>
-      
+        <Link to="/recipes" >
+            Recipes
+        </Link>
       </div>
     </nav>
   )

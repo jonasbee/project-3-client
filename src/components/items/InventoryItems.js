@@ -1,9 +1,7 @@
-import React from 'react'
+// function InventoryItems() {
+//   return (
+//     <h1>Users inventory</h1>
+//   )
+// }
 
-
-function InventoryItems() {
-  return (
-    <h1> User/'s inventory </h1>)
-}
-
-export default InventoryItems
+// export default InventoryItems
