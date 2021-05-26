@@ -9,14 +9,12 @@ function Register() {
     email: '',
     password: '',
     passwordConfirmation: '',
-    addressDetails: {
-      postalCode: '',
-      city: '',
-      street: '',
-      streetNo: '',
-      region: '',
-      country: '',
-    },
+    postalCode: '',
+    city: '',
+    street: '',
+    streetNo: '',
+    region: '',
+    country: '',
     preference: '',
   }
 
@@ -43,8 +41,9 @@ function Register() {
     alert(`Submitting form ${JSON.stringify(formdata, null, 2)}`)
   }
 
+
   return (
-    <section >
+    <section lassName="section">
       <div >
         <div >
           <form 
