@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <nav >
-      <div >
+    <nav className="navbar" role="navigation" aria-label="main navigation">
+      <div className="container">
         
         <Link to="/" >
             Home
+        </Link>
+        <Link to="/items" >
+            Itmes
         </Link>
         <Link to="/inventoryItems" >
             InventoryItems

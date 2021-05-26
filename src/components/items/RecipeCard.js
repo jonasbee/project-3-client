@@ -3,7 +3,7 @@ function RecipeCard ({ name,timeRequired }) {
     <>
       <h2>{name}</h2>
       <h3>{timeRequired}</h3>
-
+l
     </>
   )
 }
