@@ -44,11 +44,11 @@ function Register() {
 
   return (
     <section lassName="section">
-      <div >
-        <div >
-          <form 
+      <div className="container">
+        <div className="columns">
+          <form className="column is-half is-offset-one-quarter"
             onSubmit={handleSubmit}>
-            <div >
+            <div className="field">
               <label  htmlFor="username">
                 Username
               </label>
