@@ -8,7 +8,7 @@ function ItemIndex () {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        // ? getAllItems get request from lib
+        // ? getAllItems GET request from lib
         const { data } = await getAllItems()
         setItems(data)
       } catch (e) {
