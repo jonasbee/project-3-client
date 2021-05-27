@@ -1,13 +1,13 @@
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Login from './components/auth/login'
-import Register from './components/auth/register'
-import Home from './components/common/Home'
-import SharedItems from './components/common/SharedItems'
-// import InventoryItems from './components/items/InventoryItems'
-// import UserRecipes from './components/items/Recipes'
+
 import Nav from './components/common/Nav'
-
-
+import Home from './components/common/Home'
+import ItemIndex from './components/items/ItemIndex'
+import RecipeIndex from './components/items/RecipeIndex'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
+import InventoryItems from './components/items/InventoryItems'
 
 function App() {
   return (
@@ -15,13 +15,19 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/sharedItems' component={SharedItems} />
-        {/* <Route path='/:userId/recipes' component={UserRecipes} />
-     // <Route path='/:userId/items' component={InventoryItems} /> */}
-        <Route path='/register' component={Register} />
+        <Route path='/items' component={ItemIndex} />
+        <Route path='/recipes' component={RecipeIndex} />
+        <Route path='/register' component={Register} /> 
         <Route path='/login' component={Login} />
+        <Route path='/:userId/inventoryItems' component={InventoryItems} />
+        
+        {/* <Route path='/sharedItems' component={SharedItemsMap} /> */}
+        {/* <Route path='/:userId/recipes' component={UserRecipes} /> */}
+
+      
       </Switch>
     </Router>
   )
 }
+
 export default App

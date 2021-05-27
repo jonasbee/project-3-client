@@ -1,13 +1,19 @@
 import axios from 'axios'
 
+const baseUrl = '/api'
 
+export function getAllItems() {
+  return axios.get(`${baseUrl}/items`)
+}
 
-const baseUrl = 'http://localhost:3000'
+export function getAllRecipes() {
+  return axios.get(`${baseUrl}/recipes`)
+}
 
-export function registerUser(formdata) {
+export function register(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }
 
-export function loginUser(formdata) {
+export function login(formdata) {
   return axios.post(`${baseUrl}/login`, formdata)
 }
