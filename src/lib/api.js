@@ -1,6 +1,13 @@
 import axios from 'axios'
+import { getToken } from './auth'
 
 const baseUrl = '/api'
+
+function headers() {
+  return {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  }
+}
 
 export function getAllItems() {
   return axios.get(`${baseUrl}/items`)
@@ -19,5 +26,5 @@ export function login(formdata) {
 }
 
 export function getSharedInventoryItems() {
-  return axios.get(`${baseUrl}/inventoryitemsmap`)
+  return axios.get(`${baseUrl}/inventoryitemsmap`, headers())
 }
