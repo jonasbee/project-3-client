@@ -5,8 +5,9 @@ import Nav from './components/common/Nav'
 import Home from './components/common/Home'
 import ItemIndex from './components/items/ItemIndex'
 import RecipeIndex from './components/items/RecipeIndex'
-import Register from './components/auth/register'
-import Login from './components/auth/login'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
+import InventoryItems from './components/items/InventoryItems'
 
 function App() {
   return (
@@ -18,10 +19,12 @@ function App() {
         <Route path='/recipes' component={RecipeIndex} />
         <Route path='/register' component={Register} /> 
         <Route path='/login' component={Login} />
-        {/* <Route path='/sharedItems' component={SharedItemsMap} /> */}
-        {/* <Route path='/:userId/recipes' component={UserRecipes} />
-      // <Route path='/:userId/items' component={InventoryItems} /> */}
+        <Route path='/:userId/inventoryItems' component={InventoryItems} />
         
+        {/* <Route path='/sharedItems' component={SharedItemsMap} /> */}
+        {/* <Route path='/:userId/recipes' component={UserRecipes} /> */}
+
+      
       </Switch>
     </Router>
   )
