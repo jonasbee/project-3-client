@@ -44,12 +44,12 @@ function SharedItemsMap() {
         {...viewport}
         className="is-fullheight-with-navbar"
       >
-        {/* {sharedItems && sharedItems.map(item => {
+        {sharedItems && sharedItems.map(item => {
           return (
             <Marker
               key={`${item.user.username}`}
-              longitude={`${item.user.coordinates[1]}`}
-              latitude={`${item.user.coordinates[0]}`}
+              longitude={Number(`${item.user.coordinates[1]}`)}
+              latitude={Number(`${item.user.coordinates[0]}`)}
             >
               <svg
                 height={SIZE}
@@ -65,7 +65,7 @@ function SharedItemsMap() {
               </svg>
             </Marker>
           )
-        })} */}
+        })}
         <Marker key="firstmarker" longitude={-122.45} latitude={37.78}>
           <svg
             height={SIZE}
