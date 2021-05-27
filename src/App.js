@@ -7,7 +7,7 @@ import ItemIndex from './components/items/ItemIndex'
 import RecipeIndex from './components/items/RecipeIndex'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import InventoryItems from './components/items/InventoryItems'
+import InventoryItemIndex from './components/items/InventoryItemIndex'
 import SharedItemsMap from './components/common/SharedItemsMap'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path='/recipes' component={RecipeIndex} />
         <Route path='/register' component={Register} /> 
         <Route path='/login' component={Login} />
-        <Route path='/:userId/inventoryItems' component={InventoryItems} />
+        <Route path='/inventoryitems' component={InventoryItemIndex} />
         
         <Route path='/inventoryitemsmap' component={SharedItemsMap} />
         {/* <Route path='/:userId/recipes' component={UserRecipes} /> */}
