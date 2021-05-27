@@ -9,6 +9,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import InventoryItemIndex from './components/items/InventoryItemIndex'
 import SharedItemsMap from './components/common/SharedItemsMap'
+// import UserRecipes from './components/items/UserRecipes'
 
 function App() {
   return (
@@ -21,11 +22,8 @@ function App() {
         <Route path='/register' component={Register} /> 
         <Route path='/login' component={Login} />
         <Route path='/inventoryitems' component={InventoryItemIndex} />
-        
         <Route path='/inventoryitemsmap' component={SharedItemsMap} />
         {/* <Route path='/:userId/recipes' component={UserRecipes} /> */}
-
-      
       </Switch>
     </Router>
   )

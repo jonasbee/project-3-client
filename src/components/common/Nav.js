@@ -1,35 +1,89 @@
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link ,useHistory, useLocation  } from 'react-router-dom'
+import { isAuthenticated, removeToken } from '../../lib/auth'
 
-function Navbar() {
+function Nav() {
+  const history = useHistory()
+  const location = useLocation()
+  const [isOpen, setIsOpen] = React.useState(false)
+  const isLoggedIn = isAuthenticated()
 
-  return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleLogout = () => {
+    removeToken()
+    history.push('/')
+  }
+
+  React.useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname])
+
+
+  
+  return  (
+    <nav className="navbar is-dark">
       <div className="container">
-        
-        <Link to="/" >
-            Home
-        </Link>
-        <Link to="/items" >
-            Itmes
-        </Link>
-        <Link to="/inventoryItems" >
-            InventoryItems
-        </Link>
-        <Link to="/inventoryitemsmap" >
-            SharedItems
-        </Link>
-        <Link to="/login" >
-            Login
-        </Link>
-        <Link to="/register" >
-            Register
-        </Link>
-        <Link to="/recipes" >
-            Recipes
-        </Link>
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item">
+          Home Page 
+          </Link>
+          <span
+            className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={handleToggle}
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </span>
+        </div>
+        <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
+          <div className="navbar-start">
+            <Link to="/recipes" className="navbar-item">
+              Recipes
+            </Link>
+            {isLoggedIn && <Link to="/:userId/inventoryItems" className="navbar-item">
+              Personal Inventory items
+            </Link>}
+            {isLoggedIn && <Link to="/inventoryitemsmap" className="navbar-item">
+            Find Shared Food 
+            </Link>}
+            {/* {isLoggedIn && <Link to="/:userId/recipes" className="navbar-item">
+            Personalised recipes
+            </Link>} */}
+          </div>
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                {!isLoggedIn ?
+                  <>
+                    <Link to="/register" className="button is-warning">
+                  Register
+                    </Link>
+                    <Link to="/login" className="button is-warning">
+                  Log In
+                    </Link>
+                  </>
+                  :
+                  <button
+                    className="button is-warning"
+                    onClick={handleLogout}
+                  >
+                  Logout
+                  </button>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   )
 }
 
-export default Navbar
+export default Nav
+      
