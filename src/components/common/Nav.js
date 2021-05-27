@@ -52,6 +52,9 @@ function Nav() {
             {isLoggedIn && <Link to="/inventoryitemsmap" className="navbar-item">
             Find Shared Food 
             </Link>}
+            {/* {isLoggedIn && <Link to="/:userId/recipes" className="navbar-item">
+            Personalised recipes
+            </Link>} */}
           </div>
           <div className="navbar-end">
             <div className="navbar-item">

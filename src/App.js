@@ -9,6 +9,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import InventoryItems from './components/items/InventoryItems'
 import SharedItemsMap from './components/common/SharedItemsMap'
+// import UserRecipes from './components/items/UserRecipes'
 
 function App() {
   return (
@@ -21,7 +22,6 @@ function App() {
         <Route path='/register' component={Register} /> 
         <Route path='/login' component={Login} />
         <Route path='/:userId/inventoryItems' component={InventoryItems} />
-        
         <Route path='/inventoryitemsmap' component={SharedItemsMap} />
         {/* <Route path='/:userId/recipes' component={UserRecipes} /> */}
 
