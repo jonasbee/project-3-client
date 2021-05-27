@@ -1,0 +1,25 @@
+
+GET https://nominatim.openstreetmap.org/search/70176%20Stuttgart%20Johannesstraße%20100?format=json&addressdetails=1&limit=1&polygon_svg=1
+
+//format=json
+//addressdetails=1
+//limit=1
+//polygon_geojson=1
+
+// Baden-Württemberg%20Germany
+
+
+///
+//format=json&addressdetails=1&limit=1&polygon_svg=1
+///
+
+// 70197StuttgartJohannesstraße100Baden-WürttembergGermany
+###
+// address in Germany
+GET https://nominatim.openstreetmap.org/search?q=100,+Johannesstraße,+Stuttgart,+Baden-Württemberg,+70176,+Germany&format=json&addressdetails=1&limit=1&polygon_svg=1
+
+###
+GET https://nominatim.openstreetmap.org/search?q=114,+Whitechapel+High+St,+London,+E1+7QA,+United+Kingdom&format=json&addressdetails=1&limit=1&polygon_svg=1
+//?format=json&addressdetails=1&limit=1&polygon_svg=1
+
+//1st Floor, The Relay Building, 114 Whitechapel High St, London E1 7PT, Vereinigtes Königreich

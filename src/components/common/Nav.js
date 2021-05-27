@@ -11,7 +11,7 @@ function Navbar() {
         <Link to="/inventoryItems" >
             InventoryItems
         </Link>
-        <Link to="/sharedItems" >
+        <Link to="/inventoryitemsmap" >
             SharedItems
         </Link>
         <Link to="/login" >
