@@ -49,7 +49,10 @@ function Nav() {
             {isLoggedIn && <Link to="/personalisedrecipes" className="navbar-item">
             Personalised Recipes
             </Link>}
-            {isLoggedIn && <Link to="/:userId/inventoryItems" className="navbar-item">
+            {isLoggedIn && <Link to="/items" className="navbar-item">
+            Items
+            </Link>}
+            {isLoggedIn && <Link to="/inventoryitems" className="navbar-item">
               Personal Inventory items
             </Link>}
             {isLoggedIn && <Link to="/inventoryitemsmap" className="navbar-item">

@@ -31,6 +31,11 @@ export function register(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }
 
+export function getAllPersonalisedRecipes(){
+  const userId = getUserId()
+  return axios.get(`${baseUrl}/${userId}/recipes`, headers())
+}
+
 export function createInventoryItem(itemId, formdata) {
   const userId = getUserId()
   return axios.post(`${baseUrl}/${userId}/items/${itemId}`, formdata, headers())
