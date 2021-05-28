@@ -46,6 +46,15 @@ export function toggleShareStatus(inventoryItemId, status) {
   return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, { isShared: status }, headers())
 }
 
+export function deletePersonalisedItem(inventoryItemId) {
+  const userId = getUserId()
+  return axios.delete(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
+}
+
+export function editPersonalisedItem(inventoryItemId) {
+  const userId = getUserId()
+  return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
+}
 
 export function login(formdata) {
   return axios.post(`${baseUrl}/login`, formdata)
