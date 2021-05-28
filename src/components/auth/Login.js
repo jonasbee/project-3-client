@@ -60,8 +60,8 @@ function Login () {
                   onFocus={handleFocus}
                   onChange={handleChange}
                 />
-              </div>
-              {isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
+              </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
+              
             </div>
             <div className="field">
               <button type="submit" className="button is-fullwidth is-warning">
