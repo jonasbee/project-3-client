@@ -1,3 +1,4 @@
+import React from 'react'
 import { useHistory } from 'react-router'
 import { register } from '../../lib/api'
 import { useForm } from '../../hooks/useForm'
@@ -19,6 +20,8 @@ function Register() {
     coordinates: [],
   })
 
+  // const [isError, setIsError] = React.useState(false)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -27,11 +30,20 @@ function Register() {
       history.push('/login')
     } catch (err) {
       // ! Set to BE api errors
-      console.log('BE Errors: ', err.response.data.errors)
-      setFormErrors(err.response.data.errors)
+      console.log('BE Errors: ', err.response.data.message)
+      // if (err.response.data.message === 'Address not found') {
+      //   setFormErrors(err.response.data.errors)
+      //   // setIsError(true)
+      // }
+      //setFormErrors(err.response.data.errors)
+
+      console.log(err)
+
     }
   }
   
+  console.log(formErrors)
+
   return (
     <section className="section">
       <div className="container">
@@ -109,108 +121,116 @@ function Register() {
                 </small>
               }
             </div>
-            <div >
-              <label className="label" htmlFor="postalCode">
-                Post Code
-              </label>
-              <div >
-                <input
-                  className={`input ${formErrors.postalCode ? 'is-danger' : ''}`}
-                  name="postalCode"
-                  id="postalCode"
-                  type="postalCode"
-                  onChange={handleChange}
-                  placeholder="Post Code"
-                />
+            {/* // ? Address details */}
+            <br />
+            <section>
+              <h4 className="title is-4">Address Details</h4>
+              {/* {isError && <small className="help is-danger">Your address has not been recognised. Please enter a valid address.</small>} */}
+              <br />
+              <div className="field">
+                <label className="label" htmlFor="postalCode">
+                  Post Code
+                </label>
+                <div >
+                  <input
+                    className={`input ${formErrors.postalCode ? 'is-danger' : ''}`}
+                    name="postalCode"
+                    id="postalCode"
+                    type="postalCode"
+                    onChange={handleChange}
+                    placeholder="e.g. SW1A 2AA"
+                  />
+                </div>
+                {formErrors.postalCode && (
+                  <small className="help is-danger">{formErrors.postalCode}</small>
+                )}
               </div>
-              {formErrors.postalCode && (
-                <small className="help is-danger">{formErrors.postalCode}</small>
-              )}
-            </div>
-            <div >
-              <label className="label" htmlFor="city">
-                City
-              </label>
-              <div >
-                <input
-                  className={`input ${formErrors.city ? 'is-danger' : ''}`}
-                  name="city" id="city"
-                  type="city"
-                  onChange={handleChange}
-                  placeholder="City" />
+              <div className="field">
+                <label className="label" htmlFor="city">
+                  City
+                </label>
+                <div >
+                  <input
+                    className={`input ${formErrors.city ? 'is-danger' : ''}`}
+                    name="city" id="city"
+                    type="city"
+                    onChange={handleChange}
+                    placeholder="City" />
+                </div>
+                {formErrors.city && (
+                  <small className="help is-danger">{formErrors.city}</small>
+                )}
               </div>
-              {formErrors.city && (
-                <small className="help is-danger">{formErrors.city}</small>
-              )}
-            </div>
-            <div >
-              <label className="label" htmlFor="street">
-                Street
-              </label>
-              <div >
-                <input
-                  className={`input ${formErrors.street ? 'is-danger' : ''}`}
-                  name="street" id="street"
-                  type="street"
-                  onChange={handleChange}
-                  placeholder="Street"
-                />
+              <div className="field">
+                <label className="label" htmlFor="street">
+                  Street
+                </label>
+                <div >
+                  <input
+                    className={`input ${formErrors.street ? 'is-danger' : ''}`}
+                    name="street" id="street"
+                    type="street"
+                    onChange={handleChange}
+                    placeholder="Street"
+                  />
+                </div>
+                {formErrors.street && (
+                  <small className="help is-danger">{formErrors.street}</small>
+                )}
               </div>
-              {formErrors.street && (
-                <small className="help is-danger">{formErrors.street}</small>
-              )}
-            </div>
-            <div >
-              <label className="label" htmlFor="streetNo">
-                Street Number
-              </label>
-              <div >
-                <input
-                  className={`input ${formErrors.streetNo ? 'is-danger' : ''}`}
-                  name="streetNo" id="streetNo"
-                  type="streetNo"
-                  onChange={handleChange}
-                  placeholder="street number"
-                />
+              <div className="field">
+                <label className="label" htmlFor="streetNo">
+                  Street Number
+                </label>
+                <div >
+                  <input
+                    className={`input ${formErrors.streetNo ? 'is-danger' : ''}`}
+                    name="streetNo" id="streetNo"
+                    type="streetNo"
+                    onChange={handleChange}
+                    placeholder="Street number"
+                  />
+                </div>
+                {formErrors.streetNo && (
+                  <small className="help is-danger">{formErrors.streetNo}</small>
+                )}
               </div>
-              {formErrors.streetNo && (
-                <small className="help is-danger">{formErrors.streetNo}</small>
-              )}
-            </div>
-            <div >
-              <label className="label" htmlFor="region">
-                Region
-              </label>
-              <div >
-                <input
-                  className={`input ${formErrors.region ? 'is-danger' : ''}`}
-                  name="region" id="region"
-                  type="region"
-                  onChange={handleChange}
-                  placeholder="Region"
-                />
+              <div className="field">
+                <label className="label" htmlFor="region">
+                  State
+                </label>
+                <div >
+                  <input
+                    className={`input ${formErrors.region ? 'is-danger' : ''}`}
+                    name="region" id="region"
+                    type="region"
+                    onChange={handleChange}
+                    placeholder="State"
+                  />
+                </div>
+                {formErrors.region && (
+                  <small className="help is-danger">{formErrors.region}</small>
+                )}
               </div>
-              {formErrors.region && (
-                <small className="help is-danger">{formErrors.region}</small>
-              )}
-            </div>
-            <div className="field">
-              <label className="label" htmlFor="country">
-                Country
-              </label>
-              <div className="control">
-                <input
-                  className={`input ${formErrors.country ? 'is-danger' : ''}`}
-                  name="country" id="country"
-                  type="country"
-                  onChange={handleChange}
-                  placeholder="Country"
-                />
+              <div className="field">
+                <label className="label" htmlFor="country">
+                  Country
+                </label>
+                <div className="control">
+                  <input
+                    className={`input ${formErrors.country ? 'is-danger' : ''}`}
+                    name="country" id="country"
+                    type="country"
+                    onChange={handleChange}
+                    placeholder="Country"
+                  />
+                </div>
+                {formErrors.country && (
+                  <small className="help is-danger">{formErrors.country}</small>
+                )}
               </div>
-              {formErrors.country && (
-                <small className="help is-danger">{formErrors.country}</small>
-              )}
-            </div>
+            </section>
+            <br />
             <div className="field">
               <label className="label" htmlFor="preference">
                 Food preference
