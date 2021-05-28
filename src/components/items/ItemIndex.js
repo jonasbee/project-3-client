@@ -1,6 +1,9 @@
 import React from 'react'
 import { getAllItems } from '../../lib/api'
 import ItemCard from './ItemCard'
+// import { useForm } from '../../hooks/useForm'
+// import { useHistory } from 'react-router'
+// import { inventoryItem } from '../../lib/api'
 
 function ItemIndex () {
   const [items, setItems] = React.useState([])
@@ -18,6 +21,35 @@ function ItemIndex () {
     getData()
   }, [])
 
+  // function InventoryItem(){
+  //   const history = useHistory()
+  //   const [isError, setIsError] = React.useState(false)
+  //   const { formdata, handleChange } = useForm({
+  //     quantity: '',
+  //     expiryDate: '',
+  //   })
+
+  // }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+
+  //   try {
+  //     await inventoryItem(formdata)
+  //     history.push('/inventoryitems')
+  //   } catch (err) {
+  //     // ! Set to BE api errors
+  //     console.log('BE Errors: ', err.response.data.errors)
+  //     setFormErrors(err.response.data.errors)
+  //   }
+  // }
+
+  // const handleFocus = () => {
+  //   setIsError(false)
+  // }
+
+
+
+
   return (
     <section className='section'>
       <div className='container'>
@@ -29,6 +61,7 @@ function ItemIndex () {
                 name={item.name} 
                 category={item.category} 
                 icon={item.icon}
+                id={item._id}
               />))
           ) : (
             <p>...Loading</p>

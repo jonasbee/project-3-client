@@ -31,6 +31,16 @@ export function register(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }
 
+export function createInventoryItem(itemId, formdata) {
+  const userId = getUserId()
+  return axios.post(`${baseUrl}/${userId}/items/${itemId}`, formdata, headers())
+}
+
+export function toggleShareStatus(inventoryItemId, status) {
+  const userId = getUserId()
+  return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, { isShared: status }, headers())
+}
+
 export function login(formdata) {
   return axios.post(`${baseUrl}/login`, formdata)
 }

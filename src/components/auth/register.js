@@ -2,6 +2,7 @@ import { useHistory } from 'react-router'
 import { register } from '../../lib/api'
 import { useForm } from '../../hooks/useForm'
 
+
 function Register() {
   const history = useHistory()
   const { formdata, formErrors, handleChange, setFormErrors } = useForm({
@@ -26,8 +27,8 @@ function Register() {
       history.push('/login')
     } catch (err) {
       // ! Set to BE api errors
-      console.log('BE Errors: ', err.response.data.errors)
-      setFormErrors(err.response.data.errors)
+      // console.log('BE Errors: ', err.response.data.errors)
+      // setFormErrors(err.response.data.errors)
     }
   }
 

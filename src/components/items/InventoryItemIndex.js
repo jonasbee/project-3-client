@@ -27,12 +27,16 @@ function InventoryItems() {
         <div className='container'>
           <div className="columns is-multiline">
             {inventoryItems ? (
-              inventoryItems.map(({ item }) => ( 
+              inventoryItems.map(item => ( 
                 <InventoryItemCard
                   key={item._id} 
-                  name={item.name}
-                  category={item.category}
-                  icon={item.icon}
+                  name={item.item.name}
+                  category={item.item.category}
+                  icon={item.item.icon}
+                  id={item._id}
+                  quantity={item.quantity}
+                  expiryDate={item.expiryDate}
+                  shareStatus={item.isShared}
                 />
               ))
             ) : (
