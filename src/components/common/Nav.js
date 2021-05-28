@@ -46,15 +46,16 @@ function Nav() {
             <Link to="/recipes" className="navbar-item">
               Recipes
             </Link>
+            {isLoggedIn && <Link to="/personalisedrecipes" className="navbar-item">
+            Personalised Recipes
+            </Link>}
             {isLoggedIn && <Link to="/:userId/inventoryItems" className="navbar-item">
               Personal Inventory items
             </Link>}
             {isLoggedIn && <Link to="/inventoryitemsmap" className="navbar-item">
             Find Shared Food 
             </Link>}
-            {/* {isLoggedIn && <Link to="/:userId/recipes" className="navbar-item">
-            Personalised recipes
-            </Link>} */}
+            
           </div>
           <div className="navbar-end">
             <div className="navbar-item">

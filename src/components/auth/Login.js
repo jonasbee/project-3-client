@@ -19,7 +19,7 @@ function Login () {
     try {
       const res = await login(formdata)
       setToken(res.data.token)
-      history.push('/inventoryItems')
+      history.push('/items')
     } catch (err) {
       setIsError(true)
     }

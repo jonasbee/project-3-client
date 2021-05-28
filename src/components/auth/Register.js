@@ -35,7 +35,7 @@ function Register() {
       //   setFormErrors(err.response.data.errors)
       //   // setIsError(true)
       // }
-      //setFormErrors(err.response.data.errors)
+      setFormErrors(err.response.data.errors)
 
       console.log(err)
 
