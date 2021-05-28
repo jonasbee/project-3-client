@@ -16,6 +16,7 @@ function Register() {
     region: '',
     country: '',
     preference: '',
+    coordinates: [],
   })
 
   const handleSubmit = async (e) => {
@@ -30,8 +31,7 @@ function Register() {
       setFormErrors(err.response.data.errors)
     }
   }
-
-
+  
   return (
     <section className="section">
       <div className="container">
@@ -39,7 +39,7 @@ function Register() {
           <form className="column is-half is-offset-one-quarter"
             onSubmit={handleSubmit}>
             <div className="field">
-              <label  className="label" htmlFor="username">
+              <label className="label" htmlFor="username">
                 Username
               </label>
               <div className="control">
@@ -47,8 +47,9 @@ function Register() {
                   className={`input ${formErrors.username ? 'is-danger' : ''}`}
                   name="username"
                   id="username"
+                  placeholder="Username"
                   onChange={handleChange}
-                  placeholder="Username" />
+                />
               </div>
               {formErrors.username && (
                 <small className="help is-danger">{formErrors.username}</small>
@@ -59,29 +60,29 @@ function Register() {
                 Email
               </label>
               <div className="control">
-                <input 
+                <input
                   className={`input ${formErrors.email ? 'is-danger' : ''}`}
-                  name="email" 
+                  name="email"
                   id="email"
                   onChange={handleChange}
-                  placeholder="Email" 
+                  placeholder="Email"
                 />
               </div>
               {formErrors.email && (
                 <small className="help is-danger">{formErrors.email}</small>
               )}
             </div>
-            <div className="field">               
+            <div className="field">
               <label className="label" htmlFor="password">
                 Password
               </label>
               <div className="control">
-                <input 
+                <input
                   className={`input ${formErrors.password ? 'is-danger' : ''}`}
                   name="password" id="password"
                   type="password"
                   onChange={handleChange}
-                  placeholder="Passord" 
+                  placeholder="Passord"
                 />
               </div>
               {formErrors.password && (
@@ -93,16 +94,16 @@ function Register() {
                 Password Confirmation
               </label>
               <div >
-                <input 
+                <input
                   className={`input ${formErrors.passwordConfirmation ? 'is-danger' : ''}`}
                   name="passwordConfirmation"
                   id="passwordConfirmation"
                   type="password"
                   placeholder="Password Conformation"
-                  onChange={handleChange} 
+                  onChange={handleChange}
                 />
               </div>
-              {formErrors.passwordConfirmation && 
+              {formErrors.passwordConfirmation &&
                 <small className="help is-danger">
                   {formErrors.passwordConfirmation}
                 </small>
@@ -110,16 +111,16 @@ function Register() {
             </div>
             <div >
               <label className="label" htmlFor="postalCode">
-              Post Code 
+                Post Code
               </label>
               <div >
-                <input 
-                  className={`input ${formErrors.postalCode ? 'is-danger' : ''}`}                  
-                  name="postalCode" 
+                <input
+                  className={`input ${formErrors.postalCode ? 'is-danger' : ''}`}
+                  name="postalCode"
                   id="postalCode"
                   type="postalCode"
                   onChange={handleChange}
-                  placeholder="Post Code" 
+                  placeholder="Post Code"
                 />
               </div>
               {formErrors.postalCode && (
@@ -128,11 +129,11 @@ function Register() {
             </div>
             <div >
               <label className="label" htmlFor="city">
-              City
+                City
               </label>
               <div >
-                <input 
-                  className={`input ${formErrors.city ? 'is-danger' : ''}`}   
+                <input
+                  className={`input ${formErrors.city ? 'is-danger' : ''}`}
                   name="city" id="city"
                   type="city"
                   onChange={handleChange}
@@ -144,15 +145,15 @@ function Register() {
             </div>
             <div >
               <label className="label" htmlFor="street">
-              Street
+                Street
               </label>
               <div >
-                <input 
-                  className={`input ${formErrors.street ? 'is-danger' : ''}`}   
+                <input
+                  className={`input ${formErrors.street ? 'is-danger' : ''}`}
                   name="street" id="street"
                   type="street"
                   onChange={handleChange}
-                  placeholder="Street" 
+                  placeholder="Street"
                 />
               </div>
               {formErrors.street && (
@@ -161,15 +162,15 @@ function Register() {
             </div>
             <div >
               <label className="label" htmlFor="streetNo">
-              Street Number
+                Street Number
               </label>
               <div >
-                <input 
-                  className={`input ${formErrors.streetNo ? 'is-danger' : ''}`}   
+                <input
+                  className={`input ${formErrors.streetNo ? 'is-danger' : ''}`}
                   name="streetNo" id="streetNo"
                   type="streetNo"
                   onChange={handleChange}
-                  placeholder="street number" 
+                  placeholder="street number"
                 />
               </div>
               {formErrors.streetNo && (
@@ -178,15 +179,15 @@ function Register() {
             </div>
             <div >
               <label className="label" htmlFor="region">
-              Region
+                Region
               </label>
               <div >
-                <input 
-                  className={`input ${formErrors.region ? 'is-danger' : ''}`}   
+                <input
+                  className={`input ${formErrors.region ? 'is-danger' : ''}`}
                   name="region" id="region"
                   type="region"
                   onChange={handleChange}
-                  placeholder="Region" 
+                  placeholder="Region"
                 />
               </div>
               {formErrors.region && (
@@ -195,16 +196,16 @@ function Register() {
             </div>
             <div className="field">
               <label className="label" htmlFor="country">
-              Country
+                Country
               </label>
               <div className="control">
-                <input 
-                  className={`input ${formErrors.country ? 'is-danger' : ''}`}   
+                <input
+                  className={`input ${formErrors.country ? 'is-danger' : ''}`}
                   name="country" id="country"
                   type="country"
                   onChange={handleChange}
-                  placeholder="Country" 
-                />       
+                  placeholder="Country"
+                />
               </div>
               {formErrors.country && (
                 <small className="help is-danger">{formErrors.country}</small>
@@ -212,15 +213,15 @@ function Register() {
             </div>
             <div className="field">
               <label className="label" htmlFor="preference">
-              Food preference
+                Food preference
               </label>
               <div className="control">
-                <input 
-                  className="input"   
+                <input
+                  className="input"
                   name="preference" id="preference"
                   type="preference"
                   onChange={handleChange}
-                  placeholder="Food preference" 
+                  placeholder="Food preference"
                 />
               </div>
             </div>
