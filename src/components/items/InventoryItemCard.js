@@ -3,6 +3,9 @@ import { useHistory } from 'react-router'
 import { toggleShareStatus } from '../../lib/api'
 import { useForm } from '../../hooks/useForm'
 
+
+
+
 function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, shareStatus }) {
   
   const history = useHistory()
@@ -20,6 +23,8 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
       console.log(err)
     }
   }
+
+  
   
   return (
     <div className="card">
@@ -43,6 +48,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
         >
           Share
         </button>
+      
       </form>
     </div>
   ) 
