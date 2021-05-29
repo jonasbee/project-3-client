@@ -1,12 +1,20 @@
-function ItemInfo({ item }) {
+function ItemInfo(items) {
+  console.log(items)
   return (
-    <div>
-      <p>{item.item.icon} <span>{item.item.name}</span></p>
-      <br/>
-      <small>Expiry Date: {item.expiryDate}</small>
-      <br/>
-      <small>Quantity: {item.quantity}</small>
-    </div>
+    items.map(item => {
+      console.log(item)
+      return (
+        <div
+          key={`${item._id}`}
+        >
+          <small>{item.item.icon} <span>{item.item.name}</span></small>
+          <br />
+          <small>Expiry Date: {item.expiryDate}</small>
+          <br />
+          <small>Quantity: {item.quantity}</small>
+        </div>
+      )
+    })
   )
 }
 

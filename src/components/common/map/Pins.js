@@ -10,13 +10,15 @@ const SIZE = 20
 // ! parameters(/props) need to have same name 
 // ! as props in return JSX
 function Pins({ sharedItemsProp, onClick }) {
+  
   return (
-    sharedItemsProp.map(item => {
+    sharedItemsProp.map(items => {
+      console.log(items[0].user.coordinates[1])
       return (
         <Marker
-          key={`${item.user.username}`}
-          longitude={Number(`${item.user.coordinates[1]}`)}
-          latitude={Number(`${item.user.coordinates[0]}`)}
+          key={`${items[0].user._id}`}
+          longitude={Number(`${items[0].user.coordinates[1]}`)}
+          latitude={Number(`${items[0].user.coordinates[0]}`)}
         >
           <svg
             height={SIZE}
@@ -27,7 +29,7 @@ function Pins({ sharedItemsProp, onClick }) {
               stroke: 'none',
               transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
             }}
-            onClick={() => onClick(item)}
+            onClick={() => onClick(items)}
           >
             <path d={ICON} />
           </svg>

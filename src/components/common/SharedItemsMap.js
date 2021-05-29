@@ -55,12 +55,12 @@ function SharedItemsMap() {
           <Popup
             tipSize={5}
             anchor="top"
-            longitude={Number(popupInfo.user.coordinates[1])}
-            latitude={Number(popupInfo.user.coordinates[0])}
+            longitude={Number(popupInfo[0].user.coordinates[1])}
+            latitude={Number(popupInfo[0].user.coordinates[0])}
             closeOnClick={false}
             onClose={setPopupInfo}
           >
-            <ItemInfo key={`${popupInfo.item}`} item={popupInfo}/>
+            <ItemInfo key={`${popupInfo[0].user.username}`} items={popupInfo}/>
           </Popup>
         )}
 
