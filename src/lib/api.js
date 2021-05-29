@@ -51,9 +51,14 @@ export function deletePersonalisedItem(inventoryItemId) {
   return axios.delete(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
 }
 
-export function editPersonalisedItem(inventoryItemId) {
+export function editPersonalisedItem(inventoryItemId, newQuantity) {
   const userId = getUserId()
-  return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
+  return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, newQuantity, headers())
+}
+
+export function getPersonalisedItem(inventoryItemId){
+  const userId = getUserId()
+  return axios.get(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
 }
 
 export function login(formdata) {
@@ -68,3 +73,4 @@ export function getAllInventoryItems() {
   const userId = getUserId()
   return axios.get(`${baseUrl}/${userId}/items`, headers())
 }
+

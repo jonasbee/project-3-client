@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import { toggleShareStatus, deletePersonalisedItem } from '../../lib/api'
-import { useForm } from '../../hooks/useForm'
+import { toggleShareStatus, deletePersonalisedItem ,editPersonalisedItem } from '../../lib/api'
 
 function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, shareStatus }) {
   
@@ -33,6 +32,27 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
     }
   }
   
+  const [isButtonClicked, setEditButtonClicked] = React.useState(false)
+  const [newQuantity, setNewQuantity] = React.useState(null)
+
+  const handleEdit = (e) => {
+    try {
+      setEditButtonClicked(!isButtonClicked)
+      console.log(e.target.value)
+    } catch (err){
+      console.log(err)
+    }
+  }  
+  
+  const handleSave = async () => {
+    try {
+      await editPersonalisedItem(id, newQuantity)
+      console.log(newQuantity)
+    } catch (err){
+      console.log(err)
+    }
+  }  
+
   return (
     <div className="card">
       <div className="card-image">
@@ -41,28 +61,65 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
           <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
         </figure>
       </div>
-      <div className="card-content">
-        <p>Name: {name}</p>
-        <p>Category: {category}</p>
-        <p>Icon: {icon}</p>
-        <p>Quantity: {quantity}</p>
-        <p>Expiry Date: {expiryDate}</p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <button 
-          type="submit"
-          className={`button ${shareStatus ? 'is-success' : ''}`}
-        >
-          Share
-        </button>
-      </form>
+      {!isButtonClicked ? 
+        <>
+          <div className="card-content">
+            <p>Name: {name}</p>
+            <p>Category: {category}</p>
+            <p>Icon: {icon}</p>
+            <p>Quantity: {quantity}</p>
+            <p>Expiry Date: {expiryDate}</p>
+          </div>
+
+          <button 
+            type="submit"
+            className="button is-info"
+            name='quantity'
+            onClick={handleEdit}
+          >
+            Edit quantity
+          </button>
+        </>
+        :
+        <>
+          <div className="card-content">
+            <p>Name: {name}</p>
+            <p>Category: {category}</p>
+            <p>Icon: {icon}</p>
+            <label htmlFor="quantity">Quantity: </label>
+            <input type="number" id="quantity" placeholder={quantity} onChange={event => setNewQuantity(event.target.value)}
+            />
+            <p>Expiry Date: {expiryDate}</p>
+          </div> 
+
+          <button 
+            type="submit"
+            className="button is-warning"
+            name='quantity'
+            onClick={handleSave}
+          >
+            Save Changes
+          </button>
+        </>
+      }
+
+      <button 
+        type="submit"
+        className={`button ${shareStatus ? 'is-success' : ''}`}
+        onClick={handleSubmit}
+      >
+        Share
+      </button>
+
       <button 
         type="submit"
         className="button is-danger"
+        name='quantity'
         onClick={handleDelete}
       >
         Delete
       </button>
+
     </div>
   ) 
 }
