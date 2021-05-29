@@ -48,6 +48,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
     try {
       await editPersonalisedItem(id, newQuantity)
       console.log(newQuantity)
+      history.go(0)
     } catch (err){
       console.log(err)
     }
@@ -87,7 +88,11 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
             <p>Category: {category}</p>
             <p>Icon: {icon}</p>
             <label htmlFor="quantity">Quantity: </label>
-            <input type="number" id="quantity" placeholder={quantity} onChange={event => setNewQuantity(event.target.value)}
+            <input type="number" id="quantity" 
+              placeholder={quantity} 
+              onChange={event => setNewQuantity({
+                'quantity': `${event.target.value}`,
+              })}
             />
             <p>Expiry Date: {expiryDate}</p>
           </div> 
