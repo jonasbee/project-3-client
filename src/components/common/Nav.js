@@ -65,16 +65,16 @@ function Nav() {
               <div className="buttons">
                 {!isLoggedIn ?
                   <>
-                    <Link to="/register" className="button is-warning">
+                    <Link to="/register" className="button is-light">
                   Register
                     </Link>
-                    <Link to="/login" className="button is-warning">
+                    <Link to="/login" className="button is-light">
                   Log In
                     </Link>
                   </>
                   :
                   <button
-                    className="button is-warning"
+                    className="button is-light"
                     onClick={handleLogout}
                   >
                   Logout
