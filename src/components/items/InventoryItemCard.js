@@ -59,7 +59,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
       <div className="card-image">
         <figure className="image is-4by3">
           {/* // ! Replace image */}
-          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+          <img src={icon} alt={name} />
         </figure>
       </div>
       {!isButtonClicked ? 
@@ -67,7 +67,6 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
           <div className="card-content">
             <p>Name: {name}</p>
             <p>Category: {category}</p>
-            <p>Icon: {icon}</p>
             <p>Quantity: {quantity}</p>
             <p>Expiry Date: {expiryDate}</p>
           </div>
@@ -86,7 +85,6 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
           <div className="card-content">
             <p>Name: {name}</p>
             <p>Category: {category}</p>
-            <p>Icon: {icon}</p>
             <label htmlFor="quantity">Quantity: </label>
             <input type="number" id="quantity" 
               placeholder={quantity} 
