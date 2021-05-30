@@ -4,7 +4,7 @@ function PersonalisedRecipeCard({ name, timeRequired, serves, instructionSteps, 
       <div className="card-image">
         <figure className="image is-4by3">
           {/* // ! Replace image */}
-          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+          <img src={image} alt={name} />
         </figure>
       </div>
       <div className="card-content">
@@ -20,7 +20,6 @@ function PersonalisedRecipeCard({ name, timeRequired, serves, instructionSteps, 
           ))}
         </p>
         <p>Difficulty: {difficulty}</p>
-        <p>image: {image}</p>
         <br />
         <div>Ingredients: 
           {ingredients.map(ingredient =>
