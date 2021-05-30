@@ -52,9 +52,9 @@ function ItemIndex () {
 
   return (
     <>
-      <h1 className="title is-1 has-text-centered">Inventory Items</h1>
+      <h1 className="title is-1 has-text-centered mt-6">Items Index</h1>
       <section className='section'>
-        <div className='container '>
+        <div className='container'>
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
             {items ? (
               items.map(item => (
