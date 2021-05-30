@@ -1,4 +1,4 @@
-function ItemInfo(items) {
+function ItemInfo({ items }) {
   console.log(items)
   return (
     items.map(item => {
@@ -6,12 +6,13 @@ function ItemInfo(items) {
       return (
         <div
           key={`${item._id}`}
+          className="content"
         >
           <small>{item.item.icon} <span>{item.item.name}</span></small>
-          <br />
-          <small>Expiry Date: {item.expiryDate}</small>
-          <br />
-          <small>Quantity: {item.quantity}</small>
+          <ul>
+            <li><small>Expiry Date: {new Date(item.expiryDate).toLocaleDateString()}</small></li>
+            <li><small>Quantity: {item.quantity}</small></li>
+          </ul>
         </div>
       )
     })
@@ -19,3 +20,5 @@ function ItemInfo(items) {
 }
 
 export default ItemInfo
+
+// Date.prototype.toLocaleDateString()

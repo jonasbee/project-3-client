@@ -13,7 +13,8 @@ function Pins({ sharedItemsProp, onClick }) {
   
   return (
     sharedItemsProp.map(items => {
-      console.log(items[0].user.coordinates[1])
+      console.log('coordinates:',items[0].user.coordinates[1])
+      console.log('array of items per user:', items)
       return (
         <Marker
           key={`${items[0].user._id}`}
