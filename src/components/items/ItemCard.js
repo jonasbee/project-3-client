@@ -4,7 +4,7 @@ import { useForm } from '../../hooks/useForm'
 
 function ItemCard({ name, category, icon, id }) {
   const history = useHistory()
-  const { formdata, handleChange } = useForm({
+  const { formdata, formErrors, handleChange, setFormErrors } = useForm({
     quantity: '',
     expiryDate: '',
   })
@@ -22,10 +22,10 @@ function ItemCard({ name, category, icon, id }) {
     } catch (err) {
       // ! Set to BE api errors
       console.log('BE Errors: ', err.response.data.message)
-      // setFormErrors(err.response.data.errors)
+      setFormErrors(err.response.data.errors)
     }
   }
-    
+
   return (
     <div className="card">
       <div className="card-image">
@@ -38,28 +38,33 @@ function ItemCard({ name, category, icon, id }) {
         <p>Name: {name}</p>
         <p>Category: {category}</p>
         <form onSubmit={handleSubmit}>
-          <input 
-            className ="input"
-            type="number" 
+          <input
+            className={`input ${formErrors.quantity ? 'is-danger' : ''}`}
+            type="number"
             id="quantity"
             placeholder="quantity"
             name="quantity"
             onChange={handleChange}>
           </input>
+          {formErrors.quantity && (
+            <small className="help is-danger">Please enter valid quantity</small>
+          )}
           <br />
-          <input 
+          <input
             id="expiryDate"
             type="date"
             name="expiryDate"
-            onChange={handleChange} > 
+            min={`${new Date().getFullYear()}-${('0' + (new Date().getMonth() + 1)).slice(-2)}-${('0' + (new Date().getDate())).slice(-2)}`}
+            onChange={handleChange}
+          >
           </input>
           < button type="submit">Add</button>
         </form>
         <br />
       </div>
     </div>
-  ) 
-  
+  )
+
 }
 
 export default ItemCard

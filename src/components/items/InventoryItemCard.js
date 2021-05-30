@@ -53,7 +53,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
       console.log(err)
     }
   }  
-
+  
   return (
     <div className="card">
       <div className="card-image">
@@ -68,7 +68,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
             <p>Name: {name}</p>
             <p>Category: {category}</p>
             <p>Quantity: {quantity}</p>
-            <p>Expiry Date: {expiryDate}</p>
+            <p>Expiry Date: {new Date(expiryDate).toLocaleDateString()}</p>
           </div>
 
           <button 
@@ -92,7 +92,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
                 'quantity': `${event.target.value}`,
               })}
             />
-            <p>Expiry Date: {expiryDate}</p>
+            <p>Expiry Date: {new Date(expiryDate).toLocaleDateString()}</p>
           </div> 
 
           <button 
@@ -106,13 +106,23 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
         </>
       }
 
-      <button 
-        type="submit"
-        className={`button ${shareStatus ? 'is-success' : ''}`}
-        onClick={handleSubmit}
-      >
+      {shareStatus ?
+        <button 
+          type="submit"
+          className="button is-success"
+          onClick={handleSubmit}
+        >
+        Item Shared
+        </button>
+        :
+        <button 
+          type="submit"
+          className="button is-dark"
+          onClick={handleSubmit}
+        >
         Share
-      </button>
+        </button>
+      }
 
       <button 
         type="submit"

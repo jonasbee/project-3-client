@@ -22,7 +22,6 @@ function InventoryItems() {
 
   return (
     <>
-      <h1>Inventory Items</h1>
       <section className='section'>
         <div className='container'>
           <div className="columns is-multiline">
