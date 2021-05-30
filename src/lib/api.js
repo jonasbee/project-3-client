@@ -31,6 +31,11 @@ export function register(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }
 
+export function getAllPersonalisedRecipes(){
+  const userId = getUserId()
+  return axios.get(`${baseUrl}/${userId}/recipes`, headers())
+}
+
 export function createInventoryItem(itemId, formdata) {
   const userId = getUserId()
   return axios.post(`${baseUrl}/${userId}/items/${itemId}`, formdata, headers())
@@ -39,6 +44,21 @@ export function createInventoryItem(itemId, formdata) {
 export function toggleShareStatus(inventoryItemId, status) {
   const userId = getUserId()
   return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, { isShared: status }, headers())
+}
+
+export function deletePersonalisedItem(inventoryItemId) {
+  const userId = getUserId()
+  return axios.delete(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
+}
+
+export function editPersonalisedItem(inventoryItemId, newQuantity) {
+  const userId = getUserId()
+  return axios.put(`${baseUrl}/${userId}/items/${inventoryItemId}`, newQuantity, headers())
+}
+
+export function getPersonalisedItem(inventoryItemId){
+  const userId = getUserId()
+  return axios.get(`${baseUrl}/${userId}/items/${inventoryItemId}`, headers())
 }
 
 export function login(formdata) {
@@ -53,3 +73,4 @@ export function getAllInventoryItems() {
   const userId = getUserId()
   return axios.get(`${baseUrl}/${userId}/items`, headers())
 }
+
