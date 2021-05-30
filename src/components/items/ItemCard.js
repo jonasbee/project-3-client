@@ -37,7 +37,7 @@ function ItemCard({ name, category, icon, id }) {
       <div className="card-content">
         <p>Name: {name}</p>
         <p>Category: {category}</p>
-        <p>Icon: {icon}</p>
+        <img className="image is-128x128 " src={icon}/>
         <form onSubmit={handleSubmit}>
           <input 
             className ="input"
