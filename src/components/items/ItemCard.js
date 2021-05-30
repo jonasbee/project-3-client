@@ -27,7 +27,7 @@ function ItemCard({ name, category, icon, id }) {
   }
     
   return (
-    <div className="card">
+    <div className="card m-5">
       <div className="card-image">
         <figure className="image is-4by3">
           {/* // ! Replace image */}
@@ -36,10 +36,10 @@ function ItemCard({ name, category, icon, id }) {
       </div>
       <div className="card-content">
         <p>Name: {name}</p>
-        <p>Category: {category}</p>
+        <p className="mb-2">Category: {category}</p>
         <form onSubmit={handleSubmit}>
           <input 
-            className ="input"
+            className ="input mb-2"
             type="number" 
             id="quantity"
             placeholder="quantity"
@@ -48,12 +48,14 @@ function ItemCard({ name, category, icon, id }) {
           </input>
           <br />
           <input 
+            className="input mb-3"
             id="expiryDate"
             type="date"
             name="expiryDate"
             onChange={handleChange} > 
           </input>
-          < button type="submit">Add</button>
+          <br />
+          <button className="button is-primary is-small is-fullwidth" type="submit">Add</button>
         </form>
         <br />
       </div>
