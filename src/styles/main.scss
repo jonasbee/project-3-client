@@ -1,9 +1,11 @@
 @import '~bulma/bulma.sass';
 
+ 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 .map-container {
@@ -36,8 +38,21 @@ section.section {
   min-height: calc(100vh - 11.25rem);
 }
 
-$yellow: #fbcb46;
+$yellow: #a5a197;
 $footer-background-color: #363636;
 $footer-padding: 2rem 1.5rem;
 $card-header-background-color: $yellow;
 $box-padding: 1rem;
+
+.main-page{
+  background-image: url('.././assest/hero.jpg');
+}
+.hero{
+  width: 100vw;
+  height: 100vh;
+  
+}
+#home-picture {
+  border-radius: 1rem;
+  opacity: 83%;
+}
