@@ -8,7 +8,10 @@ function ItemInfo({ items }) {
           key={`${item._id}`}
           className="content"
         >
-          <small>{item.item.icon} <span>{item.item.name}</span></small>
+          <span>{item.item.name}</span>
+          <figure className="image is-32x32">
+            <img src={item.item.icon} alt={item.item.name} />
+          </figure>
           <ul>
             <li><small>Expiry Date: {new Date(item.expiryDate).toLocaleDateString()}</small></li>
             <li><small>Quantity: {item.quantity}</small></li>
