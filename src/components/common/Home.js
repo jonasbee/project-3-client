@@ -4,6 +4,7 @@ import { setToken } from '../../lib/auth'
 import { useHistory } from 'react-router'
 import { useForm } from '../../hooks/useForm'
 import  Hero  from '../../assest/hero.jpg'
+import  Logo  from '../../assest/logo.png'
 
 
 function Login () {
@@ -31,9 +32,9 @@ function Login () {
   }
 
   return (
-    <div className="hero  " style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="background  " style={{ backgroundImage: `url(${Hero})` }}>
       <section className="hero-body columns">
-        <img className="column is-two-thirds ml-5" id="home-picture" src={Hero}/>
+        <img className="column is-two-thirds ml-5" id="home-picture" src={Logo}/>
         <div className="container column ">
           <div className="column ">
             <form 
