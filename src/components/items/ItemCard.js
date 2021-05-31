@@ -30,7 +30,6 @@ function ItemCard({ name, category, icon, id }) {
     <div className="card m-5">
       <div className="card-image">
         <figure className="image is-2by1">
-          {/* // ! Replace image */}
           <img src={icon} alt={name} />
         </figure>
       </div>
