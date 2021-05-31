@@ -28,7 +28,6 @@ function RecipeCard({ name, timeRequired, serves, instructionSteps, difficulty, 
             </ul>
           )}
         </div>      
-    
       </div>
     </div>
   ) 
