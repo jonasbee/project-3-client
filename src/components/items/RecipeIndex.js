@@ -20,28 +20,24 @@ function RecipeIndex () {
   }, [])
 
   return (
-    <section className='section'>
-      <div className='container'>
-        <div className="columns is-multiline">
-          {recipes ? (
-            recipes.map(recipe => (
-              <RecipeCard 
-                key={recipe._id} 
-                // name={recipe.name} 
-                // timeRequired={recipe.timeRequired} 
-                // serves={recipe.serves}
-                // instructionSteps={recipe.instructionSteps}
-                // difficulty={recipe.difficulty}
-                // image={recipe.image}
-                // ingredients={recipe.ingredients}
-                { ...recipe }
-              />))
-          ) : (
-            <p>...Loading</p>
-          )}
+    <>
+      <h1 className="title is-1 has-text-centered mt-6">Recipes</h1>
+      <section className='section'>
+        <div className='container'>
+          <div className="column is-multiline is-centered">
+            {recipes ? (
+              recipes.map(recipe => (
+                <RecipeCard 
+                  key={recipe._id} 
+                  { ...recipe }
+                />))
+            ) : (
+              <p>...Loading</p>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 
 }

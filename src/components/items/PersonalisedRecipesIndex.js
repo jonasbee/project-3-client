@@ -20,15 +20,16 @@ function PersonalisedRecipes() {
 
   return (
     <>
-      <h2 className="title is-2">Personalised Recipes</h2>
-      <section className='section'>
-        <div className='container'>
+      <h1 className="title is-1 has-text-centered mt-6">My Recipes</h1>
+      <h4 className="subtitle is-4 has-text-centered mt-4">Based on your personaly inventory, we can suggest the following recipes...</h4>
+      <section className="section">
+        <div className="container">
           <div className="columns is-multiline">
             {recipes ? (
-              recipes.map(recipe => ( 
+              recipes.map(recipe => (
                 <PersonalisedRecipeCard
-                  key={recipe._id} 
-                  { ...recipe }
+                  key={recipe._id}
+                  {...recipe}
                 />
               ))
             ) : (

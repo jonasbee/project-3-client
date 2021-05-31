@@ -6,12 +6,19 @@ import ItemInfo from './map/ItemInfo'
 import Pins from './map/Pins'
 const mapBoxAccessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
+const bounds = [
+  // southwest
+  [51.271051,-0.515036],
+  // northeast
+  [51.662160,0.250806]
+]
+
 function SharedItemsMap() {
   const [viewport, setViewport] = useState({
-    latitude: 5,
-    longitude: 5,
-    altitude: 5,
-    zoom: 1,
+    latitude: 49.5,
+    longitude: 5.5,
+    altitude: 0,
+    zoom: 3.5,
     bearing: 0,
     pitch: 0,
   })
@@ -37,6 +44,8 @@ function SharedItemsMap() {
     getData()
   }, [])
 
+  console.log(sharedItems)
+
   return (
     <div className="map-container">
       <ReactMapGl
@@ -55,12 +64,15 @@ function SharedItemsMap() {
           <Popup
             tipSize={5}
             anchor="top"
-            longitude={Number(popupInfo.user.coordinates[1])}
-            latitude={Number(popupInfo.user.coordinates[0])}
+            longitude={Number(popupInfo[0].user.coordinates[1])}
+            latitude={Number(popupInfo[0].user.coordinates[0])}
             closeOnClick={false}
             onClose={setPopupInfo}
           >
-            <ItemInfo key={`${popupInfo.item}`} item={popupInfo}/>
+            <div className="content">
+              <h6>Items {popupInfo[0].user.username} is sharing:</h6>
+            </div>
+            <ItemInfo key={`${popupInfo[0].user.username}`} items={popupInfo}/>
           </Popup>
         )}
 

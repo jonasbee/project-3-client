@@ -21,54 +21,28 @@ function ItemIndex () {
     getData()
   }, [])
 
-  // function InventoryItem(){
-  //   const history = useHistory()
-  //   const [isError, setIsError] = React.useState(false)
-  //   const { formdata, handleChange } = useForm({
-  //     quantity: '',
-  //     expiryDate: '',
-  //   })
-
-  // }
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-
-  //   try {
-  //     await inventoryItem(formdata)
-  //     history.push('/inventoryitems')
-  //   } catch (err) {
-  //     // ! Set to BE api errors
-  //     console.log('BE Errors: ', err.response.data.errors)
-  //     setFormErrors(err.response.data.errors)
-  //   }
-  // }
-
-  // const handleFocus = () => {
-  //   setIsError(false)
-  // }
-
-
-
-
   return (
-    <section className='section'>
-      <div className='container'>
-        <div className="columns is-multiline">
-          {items ? (
-            items.map(item => (
-              <ItemCard 
-                key={item._id} 
-                name={item.name} 
-                category={item.category} 
-                icon={item.icon}
-                id={item._id}
-              />))
-          ) : (
-            <p>...Loading</p>
-          )}
+    <>
+      <h1 className="title is-1 has-text-centered mt-6">Items</h1>
+      <section className='section'>
+        <div className='container'>
+          <div className="columns is-multiline is-justify-content-space-evenly is-centered">
+            {items ? (
+              items.map(item => (
+                <ItemCard 
+                  key={item._id} 
+                  name={item.name} 
+                  category={item.category} 
+                  icon={item.icon}
+                  id={item._id}
+                />))
+            ) : (
+              <p>...Loading</p>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 
 }

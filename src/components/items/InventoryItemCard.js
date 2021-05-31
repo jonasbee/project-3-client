@@ -2,16 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import { toggleShareStatus, deletePersonalisedItem ,editPersonalisedItem } from '../../lib/api'
 
-
-
-
 function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, shareStatus }) {
   
   const history = useHistory()
-  // const [sharedState, setSharedState] = useState(shareStaus)
-  // const { formdata, handleChange } = useForm({
-  //   ,
-  // })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -56,31 +49,29 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
       console.log(err)
     }
   }  
-
+  
   return (
-    <div className="card">
+    <div className="card m-5">
       <div className="card-image">
-        <figure className="image is-4by3">
-          {/* // ! Replace image */}
+        <figure className="image is-2by1">
           <img src={icon} alt={name} />
         </figure>
       </div>
       {!isButtonClicked ? 
         <>
           <div className="card-content">
-            <p>Name: {name}</p>
-            <p>Category: {category}</p>
-            <p>Quantity: {quantity}</p>
-            <p>Expiry Date: {expiryDate}</p>
+            <p className="mb-2 is-capitalized has-text-weight-bold">Name: <span className="has-text-weight-normal">{name}</span></p>
+            <p className="mb-3 is-capitalized has-text-weight-bold">Category: <span className="has-text-weight-normal">{category}</span></p>
+            <p className="mb-3 is-capitalized has-text-weight-bold">Quantity: <span className="has-text-weight-normal">{quantity}</span></p>
+            <p className="mb-3 is-capitalized has-text-weight-bold">Expiry Date: <span className="has-text-weight-normal">{new Date(expiryDate).toLocaleDateString()}</span></p>
           </div>
-
           <button 
             type="submit"
-            className="button is-info"
+            className="button is-info mb-3"
             name='quantity'
             onClick={handleEdit}
           >
-            Edit quantity
+            Edit Quantity
           </button>
         </>
         :
@@ -95,7 +86,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
                 'quantity': `${event.target.value}`,
               })}
             />
-            <p>Expiry Date: {expiryDate}</p>
+            <p>Expiry Date: {new Date(expiryDate).toLocaleDateString()}</p>
           </div> 
 
           <button 
@@ -109,13 +100,23 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
         </>
       }
 
-      <button 
-        type="submit"
-        className={`button ${shareStatus ? 'is-success' : ''}`}
-        onClick={handleSubmit}
-      >
+      {shareStatus ?
+        <button 
+          type="submit"
+          className="button is-success mb-3"
+          onClick={handleSubmit}
+        >
+        Item Shared
+        </button>
+        :
+        <button 
+          type="submit"
+          className="button is-dark mb-3"
+          onClick={handleSubmit}
+        >
         Share
-      </button>
+        </button>
+      }
 
       <button 
         type="submit"

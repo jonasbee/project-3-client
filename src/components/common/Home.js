@@ -31,17 +31,17 @@ function Login () {
   }
 
   return (
-    <div className="hero " style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="hero  " style={{ backgroundImage: `url(${Hero})` }}>
       <section className="hero-body columns">
-        <img className="column is-two-thirds" id="home-picture" src={Hero}/>
-        <div className="container column">
-          <div className="column">
+        <img className="column is-two-thirds ml-5" id="home-picture" src={Hero}/>
+        <div className="container column ">
+          <div className="column ">
             <form 
-              className="column is-two-thirds"
+              className="column is-two-thirds form ml-6"
               onSubmit={handleSubmit}
             >
-              <div className="field">
-                <label className="label">Email</label>
+              <div className="field ">
+                <label className="label ">Email</label>
                 <div className="control">
                   <input
                     className="input"
@@ -67,7 +67,7 @@ function Login () {
               
               </div>
               <div className="field">
-                <button type="submit" className="button is-fullwidth grey-darker">
+                <button type="submit" className="button is-fullwidth is-dark">
                 Log Me In!
                 </button>
               </div>
