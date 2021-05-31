@@ -32,7 +32,7 @@ function Login () {
   }
 
   return (
-    <div className="background  " style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="background  " style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>
       <section className="hero-body columns">
         <img className="column is-two-thirds ml-5" id="home-picture" src={Logo}/>
         <div className="container column ">
@@ -76,9 +76,7 @@ function Login () {
           </div>
         </div> 
       </section>
-      
     </div>
-  
   )
 }
 
