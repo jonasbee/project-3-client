@@ -34,7 +34,7 @@ function Login () {
     <div className="hero " style={{ backgroundImage: `url(${Hero})` }}>
       <section className="hero-body columns">
         
-        <div className="container column">
+        <div className="container column ">
           <div className="column">
             <form 
               className="column is-half is-offset-one-quarter"
