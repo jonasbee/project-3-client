@@ -4,7 +4,7 @@ import { useForm } from '../../hooks/useForm'
 
 function ItemCard({ name, category, icon, id }) {
   const history = useHistory()
-  const { formdata, handleChange } = useForm({
+  const { formdata, formErrors, handleChange, setFormErrors } = useForm({
     quantity: '',
     expiryDate: '',
   })
@@ -22,44 +22,51 @@ function ItemCard({ name, category, icon, id }) {
     } catch (err) {
       // ! Set to BE api errors
       console.log('BE Errors: ', err.response.data.message)
-      // setFormErrors(err.response.data.errors)
+      setFormErrors(err.response.data.errors)
     }
   }
-    
+
   return (
-    <div className="card">
+    <div className="card m-5">
       <div className="card-image">
-        <figure className="image is-4by3">
-          {/* // ! Replace image */}
+        <figure className="image is-2by1">
           <img src={icon} alt={name} />
         </figure>
       </div>
       <div className="card-content">
-        <p>Name: {name}</p>
-        <p>Category: {category}</p>
+        <p className="mb-2 is-capitalized has-text-weight-bold">Name: <span className="has-text-weight-normal">{name}</span></p>
+        <p className="mb-3 is-capitalized has-text-weight-bold">Category: <span className="has-text-weight-normal">{category}</span></p>
         <form onSubmit={handleSubmit}>
+          <label className="label">Quantity:</label>
           <input 
-            className ="input"
+            className ={`input mb-2 ${formErrors.quantity ? 'is-danger' : ''}`}
             type="number" 
             id="quantity"
-            placeholder="quantity"
+            placeholder="e.g. 6"
             name="quantity"
-            onChange={handleChange}>
-          </input>
+            onChange={handleChange}
+          />
+          {formErrors.quantity && (
+            <small className="help is-danger">Please enter valid quantity</small>
+          )}
           <br />
+          <label className="label">Expiry Date:</label>
           <input 
+            className="input mb-3"
             id="expiryDate"
             type="date"
             name="expiryDate"
-            onChange={handleChange} > 
-          </input>
-          < button type="submit">Add</button>
+            min={`${new Date().getFullYear()}-${('0' + (new Date().getMonth() + 1)).slice(-2)}-${('0' + (new Date().getDate())).slice(-2)}`}
+            onChange={handleChange}
+          />
+          <br />
+          <button className="button is-primary has-text-weight-bold is-size-6 is-small is-fullwidth" type="submit">Add</button>
         </form>
         <br />
       </div>
     </div>
-  ) 
-  
+  )
+
 }
 
 export default ItemCard
