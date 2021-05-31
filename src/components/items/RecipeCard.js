@@ -1,6 +1,6 @@
 function RecipeCard({ name, timeRequired, serves, instructionSteps, difficulty, image, ingredients }) {
   return (
-    <div className="card">
+    <div className="card mb-6">
       <div className="card-image">
         <figure className="image is-3by2">
           <img src={image} alt={name} />
@@ -28,7 +28,6 @@ function RecipeCard({ name, timeRequired, serves, instructionSteps, difficulty, 
             </ul>
           )}
         </div>      
-    
       </div>
     </div>
   ) 

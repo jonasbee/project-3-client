@@ -2,16 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import { toggleShareStatus, deletePersonalisedItem ,editPersonalisedItem } from '../../lib/api'
 
-
-
-
 function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, shareStatus }) {
   
   const history = useHistory()
-  // const [sharedState, setSharedState] = useState(shareStaus)
-  // const { formdata, handleChange } = useForm({
-  //   ,
-  // })
 
   const handleSubmit = async (e) => {
     e.preventDefault()

@@ -47,13 +47,13 @@ function Nav() {
               Recipes
             </Link>
             {isLoggedIn && <Link to="/personalisedrecipes" className="navbar-item">
-            Personalised Recipes
+            My Recipes
             </Link>}
             {isLoggedIn && <Link to="/items" className="navbar-item">
             Items
             </Link>}
             {isLoggedIn && <Link to="/inventoryitems" className="navbar-item">
-              Personal Inventory items
+              My Items
             </Link>}
             {isLoggedIn && <Link to="/inventoryitemsmap" className="navbar-item">
             Find Shared Food 
