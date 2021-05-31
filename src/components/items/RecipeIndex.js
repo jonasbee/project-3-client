@@ -24,7 +24,7 @@ function RecipeIndex () {
       <h1 className="title is-1 has-text-centered mt-6">Recipe Index</h1>
       <section className='section'>
         <div className='container'>
-          <div className="columns is-multiline">
+          <div className="column is-multiline is-centered">
             {recipes ? (
               recipes.map(recipe => (
                 <RecipeCard 
