@@ -50,7 +50,7 @@ function ItemCard({ name, category, icon, id }) {
             <small className="help is-danger">Please enter valid quantity</small>
           )}
           <br />
-          <label className="label">Date:</label>
+          <label className="label">Expiry Date:</label>
           <input 
             className="input mb-3"
             id="expiryDate"
