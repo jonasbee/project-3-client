@@ -38,54 +38,28 @@ function ItemCard({ name, category, icon, id }) {
         <p className="mb-2 is-capitalized has-text-weight-bold">Name: <span className="has-text-weight-normal">{name}</span></p>
         <p className="mb-3 is-capitalized has-text-weight-bold">Category: <span className="has-text-weight-normal">{category}</span></p>
         <form onSubmit={handleSubmit}>
-<<<<<<< HEAD
-          <input
-            className={`input ${formErrors.quantity ? 'is-danger' : ''}`}
-            type="number"
-=======
-
-          {/* <div className="field-group">
-            <div className="field is-inline-block-desktop">
-              <label className="label">Quantity:</label>
-              <input 
-                className ="input mb-2"
-                type="number" 
-                id="quantity"
-                placeholder="e.g. 2"
-                name="quantity"
-                onChange={handleChange}>
-              </input>
-            </div>
-          </div> */}
-
           <label className="label">Quantity:</label>
           <input 
-            className ="input mb-2"
+            className ={`input mb-2 ${formErrors.quantity ? 'is-danger' : ''}`}
             type="number" 
->>>>>>> b99b8871f3c830ee33c279135e70ad806f380116
             id="quantity"
             placeholder="e.g. 6"
             name="quantity"
-            onChange={handleChange}>
-          </input>
+            onChange={handleChange}
+          />
           {formErrors.quantity && (
             <small className="help is-danger">Please enter valid quantity</small>
           )}
           <br />
-<<<<<<< HEAD
-          <input
-=======
           <label className="label">Date:</label>
           <input 
             className="input mb-3"
->>>>>>> b99b8871f3c830ee33c279135e70ad806f380116
             id="expiryDate"
             type="date"
             name="expiryDate"
             min={`${new Date().getFullYear()}-${('0' + (new Date().getMonth() + 1)).slice(-2)}-${('0' + (new Date().getDate())).slice(-2)}`}
             onChange={handleChange}
-          >
-          </input>
+          />
           <br />
           <button className="button is-primary has-text-weight-bold is-size-6 is-small is-fullwidth" type="submit">Add</button>
         </form>

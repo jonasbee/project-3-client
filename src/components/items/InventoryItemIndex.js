@@ -22,10 +22,7 @@ function InventoryItems() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
       <h1>Personalised Inventory Items</h1>
->>>>>>> b99b8871f3c830ee33c279135e70ad806f380116
       <section className='section'>
         <div className='container'>
           <div className="columns is-multiline">
