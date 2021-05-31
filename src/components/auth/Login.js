@@ -31,10 +31,10 @@ function Login () {
   }
 
   return (
-    <div className="hero " style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="background" style={{ backgroundImage: `url(${Hero})` }}>
       <section className="hero-body columns">
         
-        <div className="container column">
+        <div className="container column ">
           <div className="column">
             <form 
               className="column is-half is-offset-one-quarter"
@@ -67,7 +67,7 @@ function Login () {
               
               </div>
               <div className="field">
-                <button type="submit" className="button is-fullwidth grey-darker">
+                <button type="submit" className="button is-fullwidth is-dark">
                 Log Me In!
                 </button>
               </div>
