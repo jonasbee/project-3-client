@@ -39,7 +39,7 @@ function Login () {
             onSubmit={handleSubmit}
           >
             <div className="field">
-              <label className="label">Email</label>
+              <label className="label has-text-white">Email</label>
               <div className="control">
                 <input
                   className="input"
@@ -51,7 +51,7 @@ function Login () {
               </div>
             </div>
             <div className="field">
-              <label className="label">Password</label>
+              <label className="label has-text-white">Password</label>
               <div className="control">
                 <input
                   type="password"
