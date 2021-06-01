@@ -18,7 +18,7 @@ function ItemCard({ name, category, icon, id }) {
       console.log(formdata)
       const newItem = await createInventoryItem(id, formdata)
       console.log(newItem)
-      history.push('/inventoryitems')
+      history.go(0)
     } catch (err) {
       // ! Set to BE api errors
       console.log('BE Errors: ', err.response.data.message)
@@ -62,6 +62,7 @@ function ItemCard({ name, category, icon, id }) {
           <br />
           <button className="button is-primary has-text-weight-bold is-size-6 is-small is-fullwidth" type="submit">Add</button>
         </form>
+        
         <br />
       </div>
     </div>
