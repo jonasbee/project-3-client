@@ -53,7 +53,7 @@ function Register() {
   console.log(formErrors)
 
   return (
-    <div className="hero" style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="background  " style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>
       <section className="section">
         <div className="container">
           <div className="columns">

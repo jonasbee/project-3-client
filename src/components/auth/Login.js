@@ -3,7 +3,7 @@ import { login } from '../../lib/api'
 import { setToken } from '../../lib/auth'
 import { useHistory } from 'react-router'
 import { useForm } from '../../hooks/useForm'
-// import  Hero  from '../../assest/hero.jpg'
+import  Hero  from '../../assest/hero.jpg'
 
 
 function Login () {
@@ -31,47 +31,50 @@ function Login () {
   }
 
   return (
-    <section className="hero-body columns">
-      <div className="container column ">
-        <div className="column">
-          <form 
-            className="column is-half is-offset-one-quarter"
-            onSubmit={handleSubmit}
-          >
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Email"
-                  name="email"
-                  onFocus={handleFocus}
-                  onChange={handleChange}
-                />
+    <div className="background  " style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>
+      <section className="hero-body columns">
+        <div className="container column ">
+          <div className="column">
+            <form 
+              className="column is-half is-offset-one-quarter"
+              onSubmit={handleSubmit}
+            >
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    placeholder="Email"
+                    name="email"
+                    onFocus={handleFocus}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                  name="password"
-                  onFocus={handleFocus}
-                  onChange={handleChange}
-                />
-              </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
-            </div>
-            <div className="field">
-              <button type="submit" className="button is-fullwidth is-dark">
+              <div className="field">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input
+                    type="password"
+                    className="input"
+                    placeholder="Password"
+                    name="password"
+                    onFocus={handleFocus}
+                    onChange={handleChange}
+                  />
+                </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
+            
+              </div>
+              <div className="field">
+                <button type="submit" className="button is-fullwidth is-dark">
               Log Me In!
-              </button>
-            </div>
-          </form>
-        </div>
-      </div> 
-    </section>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div> 
+      </section>
+    </div>
   )
 }
 

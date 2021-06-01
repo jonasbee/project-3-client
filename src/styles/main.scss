@@ -55,13 +55,25 @@ $box-padding: 1rem;
   height: 35%;
   width: 35%;
   margin-top: 1rem;
+  max-width: 100%;
+  width: 500px;
 }
+
+
+// @media only screen and (max-width: 600px) {
+//   #home-picture {
+//     width: 80%;
+
+//   }
+// }
+
 
 #items-info {
   overflow: auto;
   height: 200px;
   width: 100%;
 }
+
 
 #zoom-in {
   animation-duration: .3s;
