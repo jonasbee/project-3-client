@@ -40,7 +40,20 @@ function ItemIndex () {
   return (
     <>
       <h1 className="title is-1 has-text-centered mt-6">Items</h1>
-      <input type="search" onKeyUp={searchTyping}></input>
+      <div className="columns is-centered mt-4">
+        <div className="field is-horizontal column is-half">
+          <div className="field-label is-normal">
+            <label className="label">Search Item:</label>
+          </div>
+          <div className="field-body">
+            <div className="field">
+              <p className="control">
+                <input className="input" type="search" placeholder="e.g. tomato" onKeyUp={searchTyping} />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <section className='section'>
         <div className='container'>
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
