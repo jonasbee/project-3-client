@@ -75,6 +75,7 @@ function ItemCard({ name, category, icon, id }) {
           <br />
           <button className="button is-primary has-text-weight-bold is-size-6 is-small is-fullwidth" type="submit">Add</button>
         </form>
+        
         <br />
       </div>
     </div>

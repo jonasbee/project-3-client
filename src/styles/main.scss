@@ -5,7 +5,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+  font-family: 'Londrina Solid', cursive;
+  letter-spacing: 2px;
 }
 
 .map-container {
@@ -55,13 +56,25 @@ $box-padding: 1rem;
   height: 35%;
   width: 35%;
   margin-top: 1rem;
+  max-width: 100%;
+  width: 500px;
 }
+
+
+// @media only screen and (max-width: 600px) {
+//   #home-picture {
+//     width: 80%;
+
+//   }
+// }
+
 
 #items-info {
   overflow: auto;
   height: 210px;
   width: 100%;
 }
+
 
 #zoom-in {
   animation-duration: .3s;
