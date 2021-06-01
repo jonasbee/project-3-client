@@ -34,7 +34,7 @@ function Login () {
   return (
     <div className="background" style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>
       <section className="hero-body columns">
-        <img className="column is-two-thirds ml-5" id="home-picture" src={Logo}/>
+        <img className="column is-two-thirds ml-5 img" id="home-picture" src={Logo}/>
         <div className="container column ">
           <div className="column ">
             <form 
@@ -77,6 +77,9 @@ function Login () {
         </div> 
       </section>
     </div>
+      
+    
+  
   )
 }
 
