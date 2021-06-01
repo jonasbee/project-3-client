@@ -24,7 +24,7 @@ function Nav() {
 
   
   return  (
-    <nav className="navbar is-dark">
+    <nav className="navbar is-light">
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
