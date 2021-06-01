@@ -7,6 +7,8 @@ import ItemCard from './ItemCard'
 
 function ItemIndex () {
   const [items, setItems] = React.useState([])
+  const [searchValue, setSearchValue] = React.useState('')
+  const [selectedItems, setSelectedItems] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -14,6 +16,7 @@ function ItemIndex () {
         // ? getAllItems GET request from lib
         const { data } = await getAllItems()
         setItems(data)
+        setSelectedItems(data)
       } catch (e) {
         console.log(e)
       }
@@ -21,14 +24,28 @@ function ItemIndex () {
     getData()
   }, [])
 
+  const filterItems = (search) => {
+    setSelectedItems(items.filter(item => {
+      if (item.name.toLowerCase().includes(search.toLowerCase())) { 
+        return item
+      }
+    }))
+  }
+
+  const searchTyping = (e) => {
+    setSearchValue(e.target.value)
+    filterItems(e.target.value)
+  }
+
   return (
     <>
       <h1 className="title is-1 has-text-centered mt-6">Items</h1>
+      <input type="search" onKeyUp={searchTyping}></input>
       <section className='section'>
         <div className='container'>
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
-            {items ? (
-              items.map(item => (
+            {selectedItems ? (
+              selectedItems.map(item => (
                 <ItemCard 
                   key={item._id} 
                   name={item.name} 
