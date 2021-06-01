@@ -5,7 +5,7 @@ import ItemCard from './ItemCard'
 // import { useHistory } from 'react-router'
 // import { inventoryItem } from '../../lib/api'
 
-function ItemIndex () {
+function ItemIndex() {
   const [items, setItems] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
   const [selectedItems, setSelectedItems] = React.useState(null)
@@ -26,9 +26,9 @@ function ItemIndex () {
 
   const filterItems = (search) => {
     setSelectedItems(items.filter(item => {
-      if (item.name.toLowerCase().includes(search.toLowerCase())) { 
+      if (item.name.toLowerCase().includes(search.toLowerCase())) {
         return item
-      }
+      } 
     }))
   }
 
@@ -46,10 +46,10 @@ function ItemIndex () {
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
             {selectedItems ? (
               selectedItems.map(item => (
-                <ItemCard 
-                  key={item._id} 
-                  name={item.name} 
-                  category={item.category} 
+                <ItemCard
+                  key={item._id}
+                  name={item.name}
+                  category={item.category}
                   icon={item.icon}
                   id={item._id}
                 />))
