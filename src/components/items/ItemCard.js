@@ -18,7 +18,7 @@ function ItemCard({ name, category, icon, id }) {
       console.log(formdata)
       const newItem = await createInventoryItem(id, formdata)
       console.log(newItem)
-      history.push('/inventoryitems')
+      // history.push('/inventoryitems')
     } catch (err) {
       // ! Set to BE api errors
       console.log('BE Errors: ', err.response.data.message)
@@ -52,13 +52,16 @@ function ItemCard({ name, category, icon, id }) {
           <br />
           <label className="label">Expiry Date:</label>
           <input 
-            className="input mb-3"
+            className={`input mb-2 ${formErrors.expiryDate ? 'is-danger' : ''}`}
             id="expiryDate"
             type="date"
             name="expiryDate"
             min={`${new Date().getFullYear()}-${('0' + (new Date().getMonth() + 1)).slice(-2)}-${('0' + (new Date().getDate())).slice(-2)}`}
             onChange={handleChange}
           />
+          {formErrors.expiryDate && (
+            <small className="help is-danger">Please add an expiry date</small>
+          )}
           <br />
           <button className="button is-primary has-text-weight-bold is-size-6 is-small is-fullwidth" type="submit">Add</button>
         </form>

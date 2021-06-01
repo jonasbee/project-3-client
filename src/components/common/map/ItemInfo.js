@@ -1,5 +1,6 @@
 function ItemInfo({ items }) {
   console.log(items)
+
   return (
     items.map(item => {
       console.log(item)
@@ -8,7 +9,7 @@ function ItemInfo({ items }) {
           key={`${item._id}`}
           className="content"
         >
-          <span>{item.item.name}</span>
+          <span>{item.item.name.charAt(0).toUpperCase() + item.item.name.slice(1)}</span>
           <figure className="image is-32x32">
             <img src={item.item.icon} alt={item.item.name} />
           </figure>
@@ -19,6 +20,7 @@ function ItemInfo({ items }) {
         </div>
       )
     })
+
   )
 }
 

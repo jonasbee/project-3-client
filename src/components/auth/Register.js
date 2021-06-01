@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import { register } from '../../lib/api'
 import { useForm } from '../../hooks/useForm'
-import  Hero  from '../../assest/hero.jpg'
+import Hero from '../../assest/hero.jpg'
 
 function Register() {
   const history = useHistory()
@@ -42,7 +42,7 @@ function Register() {
       // }
     }
   }
-  
+
   // if (err.response.data.message === 'Address not found') { 
   //   setFormErrors({ coordinates: 'Path not found' })
   //   setIsError(true)
@@ -61,7 +61,7 @@ function Register() {
               onSubmit={handleSubmit}>
               <div className="field">
                 <label className="label" htmlFor="username">
-                Username
+                  Username
                 </label>
                 <div className="control">
                   <input
@@ -78,7 +78,7 @@ function Register() {
               </div>
               <div className="field">
                 <label className="label" htmlFor="email">
-                Email
+                  Email
                 </label>
                 <div className="control">
                   <input
@@ -95,7 +95,7 @@ function Register() {
               </div>
               <div className="field">
                 <label className="label" htmlFor="password">
-                Password
+                  Password
                 </label>
                 <div className="control">
                   <input
@@ -112,7 +112,7 @@ function Register() {
               </div>
               <div className="field">
                 <label className="label" htmlFor="passwordConfirmation">
-                Password Confirmation
+                  Password Confirmation
                 </label>
                 <div >
                   <input
@@ -125,9 +125,9 @@ function Register() {
                   />
                 </div>
                 {formErrors.passwordConfirmation &&
-                <small className="help is-danger">
-                  {formErrors.passwordConfirmation}
-                </small>
+                  <small className="help is-danger">
+                    {formErrors.passwordConfirmation}
+                  </small>
                 }
               </div>
               {/* // ? Address details */}
@@ -138,7 +138,7 @@ function Register() {
                 <br />
                 <div className="field">
                   <label className="label" htmlFor="postalCode">
-                  Post Code
+                    Post Code
                   </label>
                   <div >
                     <input
@@ -156,7 +156,7 @@ function Register() {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor="city">
-                  City
+                    City
                   </label>
                   <div >
                     <input
@@ -172,7 +172,7 @@ function Register() {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor="street">
-                  Street
+                    Street
                   </label>
                   <div >
                     <input
@@ -189,7 +189,7 @@ function Register() {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor="streetNo">
-                  Street Number
+                    Street Number
                   </label>
                   <div >
                     <input
@@ -206,7 +206,7 @@ function Register() {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor="region">
-                  State
+                    State
                   </label>
                   <div >
                     <input
@@ -223,7 +223,7 @@ function Register() {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor="country">
-                  Country
+                    Country
                   </label>
                   <div className="control">
                     <input
@@ -242,17 +242,20 @@ function Register() {
               <br />
               <div className="field">
                 <label className="label" htmlFor="preference">
-                Food preference
+                  Food preference
                 </label>
                 <div className="control">
                   <input
-                    className="input"
+                    className={`input ${formErrors.preference ? 'is-danger' : ''}`}
                     name="preference" id="preference"
                     type="preference"
                     onChange={handleChange}
                     placeholder="Food preference"
                   />
                 </div>
+                {formErrors.preference && (
+                  <small className="help is-danger">Choose from: vegan, vegetarian, pescetarian</small>
+                )}
               </div>
               <div className="field">
                 <button type="submit" className="button is-fullwidth is-dark">Register Me!</button>

@@ -6,11 +6,13 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
   
   const history = useHistory()
 
+  const [isShareClicked, setisShareClicked] = React.useState(shareStatus)
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       await toggleShareStatus(id, !shareStatus)
-      history.push('/inventoryitemsmap')
+      // history.push('/inventoryitemsmap')
+      setisShareClicked(!isShareClicked)
     } catch (err) {
       console.log(err)
     }
@@ -100,7 +102,7 @@ function InventoryItemCard({ name, category, icon, id, quantity, expiryDate, sha
         </>
       }
 
-      {shareStatus ?
+      {isShareClicked ?
         <button 
           type="submit"
           className="button is-success mb-3"

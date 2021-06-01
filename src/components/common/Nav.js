@@ -47,7 +47,7 @@ function Nav() {
               Recipes
             </Link>
             {isLoggedIn && <Link to="/personalisedrecipes" className="navbar-item">
-            My Recipes
+            Recipefinder
             </Link>}
             {isLoggedIn && <Link to="/items" className="navbar-item">
             Items
