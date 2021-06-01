@@ -15,7 +15,6 @@ function Register() {
     city: '',
     street: '',
     streetNo: '',
-    region: '',
     country: '',
     preference: '',
     coordinates: '',
@@ -53,14 +52,15 @@ function Register() {
   console.log(formErrors)
 
   return (
-    <div className="hero" style={{ backgroundImage: `url(${Hero})` }}>
+    <div className="hero" style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>
       <section className="section">
-        <div className="container">
+        <div className="container ">
           <div className="columns">
             <form className="column is-half is-offset-one-quarter"
               onSubmit={handleSubmit}>
+              <h4 className="title is-4 has-text-white">Account Details</h4>
               <div className="field">
-                <label className="label" htmlFor="username">
+                <label className="label has-text-white" htmlFor="username">
                   Username
                 </label>
                 <div className="control">
@@ -77,7 +77,7 @@ function Register() {
                 )}
               </div>
               <div className="field">
-                <label className="label" htmlFor="email">
+                <label className="label has-text-white" htmlFor="email">
                   Email
                 </label>
                 <div className="control">
@@ -94,7 +94,7 @@ function Register() {
                 )}
               </div>
               <div className="field">
-                <label className="label" htmlFor="password">
+                <label className="label has-text-white" htmlFor="password">
                   Password
                 </label>
                 <div className="control">
@@ -111,7 +111,7 @@ function Register() {
                 )}
               </div>
               <div className="field">
-                <label className="label" htmlFor="passwordConfirmation">
+                <label className="label has-text-white" htmlFor="passwordConfirmation">
                   Password Confirmation
                 </label>
                 <div >
@@ -133,11 +133,11 @@ function Register() {
               {/* // ? Address details */}
               <br />
               <section>
-                <h4 className="title is-4">Address Details</h4>
+                <h4 className="title is-4 has-text-white">Address Details</h4>
                 {(formErrors.coordinates) && <small className="help is-danger">Your address has not been recognised. Please enter a valid address.</small>}
                 <br />
                 <div className="field">
-                  <label className="label" htmlFor="postalCode">
+                  <label className="label has-text-white" htmlFor="postalCode">
                     Post Code
                   </label>
                   <div >
@@ -155,7 +155,7 @@ function Register() {
                   )}
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor="city">
+                  <label className="label has-text-white" htmlFor="city">
                     City
                   </label>
                   <div >
@@ -171,7 +171,7 @@ function Register() {
                   )}
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor="street">
+                  <label className="label has-text-white" htmlFor="street">
                     Street
                   </label>
                   <div >
@@ -188,7 +188,7 @@ function Register() {
                   )}
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor="streetNo">
+                  <label className="label has-text-white" htmlFor="streetNo">
                     Street Number
                   </label>
                   <div >
@@ -197,7 +197,7 @@ function Register() {
                       name="streetNo" id="streetNo"
                       type="streetNo"
                       onChange={handleChange}
-                      placeholder="Street number"
+                      placeholder="Street Number"
                     />
                   </div>
                   {formErrors.streetNo && (
@@ -205,24 +205,7 @@ function Register() {
                   )}
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor="region">
-                    State
-                  </label>
-                  <div >
-                    <input
-                      className={`input ${formErrors.region ? 'is-danger' : ''}`}
-                      name="region" id="region"
-                      type="region"
-                      onChange={handleChange}
-                      placeholder="State"
-                    />
-                  </div>
-                  {formErrors.region && (
-                    <small className="help is-danger">{formErrors.region}</small>
-                  )}
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor="country">
+                  <label className="label has-text-white" htmlFor="country">
                     Country
                   </label>
                   <div className="control">
@@ -241,8 +224,8 @@ function Register() {
               </section>
               <br />
               <div className="field">
-                <label className="label" htmlFor="preference">
-                  Food preference
+                <label className="label has-text-white" htmlFor="preference">
+                  Food Preference
                 </label>
                 <div className="control">
                   <input
@@ -250,7 +233,7 @@ function Register() {
                     name="preference" id="preference"
                     type="preference"
                     onChange={handleChange}
-                    placeholder="Food preference"
+                    placeholder="Food Preference"
                   />
                 </div>
                 {formErrors.preference && (
