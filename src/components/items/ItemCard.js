@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router'
 import { createInventoryItem } from '../../lib/api'
 import { useForm } from '../../hooks/useForm'
+import React from 'react'
 
 function ItemCard({ name, category, icon, id }) {
   const history = useHistory()
@@ -9,25 +10,34 @@ function ItemCard({ name, category, icon, id }) {
     expiryDate: '',
   })
 
-
+  const [isAddClicked, setIsAddClicked] = React.useState(false)
+  console.log('at mount', isAddClicked)
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     try {
       console.log(id)
       console.log(formdata)
       const newItem = await createInventoryItem(id, formdata)
       console.log(newItem)
       // history.push('/inventoryitems')
+      // ? set to true everytime clicked
+      setIsAddClicked(true)
+      setTimeout(() => setIsAddClicked(false), 300)
+      
+      console.log('after mount', isAddClicked)
     } catch (err) {
       // ! Set to BE api errors
       console.log('BE Errors: ', err.response.data.message)
       setFormErrors(err.response.data.errors)
     }
   }
+  console.log(isAddClicked ? 'zoom-in' : '')
 
   return (
-    <div className="card m-5">
+    <div 
+      className="card m-5"
+      id={isAddClicked ? 'zoom-in' : ''}
+    >
       <div className="card-image">
         <figure className="image is-2by1">
           <img src={icon} alt={name} />

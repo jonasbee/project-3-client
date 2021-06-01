@@ -28,7 +28,7 @@ function Nav() {
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-          Home Page 
+          Home 
           </Link>
           <span
             className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
