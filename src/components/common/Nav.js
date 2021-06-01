@@ -28,7 +28,7 @@ function Nav() {
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-          Home Page 
+          Home 
           </Link>
           <span
             className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
@@ -47,7 +47,7 @@ function Nav() {
               Recipes
             </Link>
             {isLoggedIn && <Link to="/personalisedrecipes" className="navbar-item">
-            My Recipes
+            Recipefinder
             </Link>}
             {isLoggedIn && <Link to="/items" className="navbar-item">
             Items

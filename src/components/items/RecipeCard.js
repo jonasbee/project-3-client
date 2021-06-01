@@ -14,7 +14,7 @@ function RecipeCard({ name, timeRequired, serves, instructionSteps, difficulty, 
         <h5 className="subtitle is-5 has-text-weight-bold">Instructions: </h5>
         <div>  
           {instructionSteps.map((step, i) => (
-            <ul key="step">
+            <ul key={step}>
               <li className="mb-2">{i + 1}. {step}</li>
             </ul>
           ))}
@@ -23,7 +23,7 @@ function RecipeCard({ name, timeRequired, serves, instructionSteps, difficulty, 
         <h5 className="subtitle is-5 has-text-weight-bold">Ingredients: </h5>
         <div>
           {ingredients.map(ingredient =>
-            <ul key="name" className="is-capitalized">
+            <ul key={ingredient.name} className="is-capitalized">
               <li>{ingredient.name} {ingredient.number}{ingredient.metric}</li>
             </ul>
           )}

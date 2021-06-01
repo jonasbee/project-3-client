@@ -44,14 +44,11 @@ $footer-padding: 2rem 1.5rem;
 $card-header-background-color: $yellow;
 $box-padding: 1rem;
 
-.main-page{
-  background-image: url('.././assest/hero.jpg');
-}
 .background{
   width: 100vw;
   height: 100vh;
-  
 }
+
 #home-picture {
   border-radius: 3rem;
   // opacity: 70%;
@@ -60,3 +57,21 @@ $box-padding: 1rem;
   margin-top: 1rem;
 }
 
+#items-info {
+  overflow: auto;
+  height: 200px;
+  width: 100%;
+}
+
+#zoom-in {
+  animation-duration: .3s;
+  animation-name: #{zoom-in};
+}
+@keyframes zoom-in {
+  0%,100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

@@ -3,7 +3,7 @@ import { login } from '../../lib/api'
 import { setToken } from '../../lib/auth'
 import { useHistory } from 'react-router'
 import { useForm } from '../../hooks/useForm'
-import  Hero  from '../../assest/hero.jpg'
+// import  Hero  from '../../assest/hero.jpg'
 
 
 function Login () {
@@ -31,9 +31,7 @@ function Login () {
   }
 
   return (
-    // <div className="background" style={{ backgroundImage: `url(${Hero})` }}>
     <section className="hero-body columns">
-        
       <div className="container column ">
         <div className="column">
           <form 
@@ -64,20 +62,16 @@ function Login () {
                   onChange={handleChange}
                 />
               </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
-              
             </div>
             <div className="field">
               <button type="submit" className="button is-fullwidth is-dark">
-                Log Me In!
+              Log Me In!
               </button>
             </div>
           </form>
         </div>
       </div> 
     </section>
-      
-  
-  
   )
 }
 
