@@ -31,53 +31,48 @@ function Login () {
   }
 
   return (
-    <div className="background" style={{ backgroundImage: `url(${Hero})` }}>
-      <section className="hero-body columns">
-        
-        <div className="container column ">
-          <div className="column">
-            <form 
-              className="column is-half is-offset-one-quarter"
-              onSubmit={handleSubmit}
-            >
-              <div className="field">
-                <label className="label">Email</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    placeholder="Email"
-                    name="email"
-                    onFocus={handleFocus}
-                    onChange={handleChange}
-                  />
-                </div>
+    <section className="hero-body columns">
+      <div className="container column ">
+        <div className="column">
+          <form 
+            className="column is-half is-offset-one-quarter"
+            onSubmit={handleSubmit}
+          >
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control">
+                <input
+                  className="input"
+                  placeholder="Email"
+                  name="email"
+                  onFocus={handleFocus}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input
-                    type="password"
-                    className="input"
-                    placeholder="Password"
-                    name="password"
-                    onFocus={handleFocus}
-                    onChange={handleChange}
-                  />
-                </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
-              
-              </div>
-              <div className="field">
-                <button type="submit" className="button is-fullwidth is-dark">
-                Log Me In!
-                </button>
-              </div>
-            </form>
-          </div>
-        </div> 
-      </section>
-      
-    </div>
-  
+            </div>
+            <div className="field">
+              <label className="label">Password</label>
+              <div className="control">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  name="password"
+                  onFocus={handleFocus}
+                  onChange={handleChange}
+                />
+              </div>{isError && <small className="help is-danger">Your credentials are incorrect, please check and try again</small>}
+            
+            </div>
+            <div className="field">
+              <button type="submit" className="button is-fullwidth is-dark">
+              Log Me In!
+              </button>
+            </div>
+          </form>
+        </div>
+      </div> 
+    </section>
   )
 }
 
