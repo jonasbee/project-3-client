@@ -4,9 +4,12 @@ import InventoryItemCard from './InventoryItemCard'
 
 function InventoryItems() {
   const [inventoryItems, setInventoryItems] = React.useState([])
-  const [searchValue, setSearchValue] = React.useState('')
+  const [filterValues, setFilterValues] = React.useState({
+    searchValue: '',
+    dateExpiry: null,
+  })
   const [selectedInventoryItems, setSelectedInventoryItems] = React.useState(null)
-  const [date, setDate] = React.useState(null)
+  // const [date, setDate] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -24,28 +27,44 @@ function InventoryItems() {
 
   console.log(inventoryItems)
 
-  const filterInventoryItems = (filterDate, search) => {
-    setSelectedInventoryItems(inventoryItems.filter(inventoryItem => {
-      if (!filterDate && inventoryItem.item.name.toLowerCase().includes(search.toLowerCase())) {
-        return inventoryItem
-      } 
-      console.log('item date:',inventoryItem.expiryDate.slice(0,10))
-      console.log('filter date:',filterDate)
-      console.log(inventoryItem.item.name.toLowerCase().includes(search.toLowerCase()))
-      console.log('name:',inventoryItem.item.name.toLowerCase())
-      return filterDate && ((inventoryItem.expiryDate.slice(0,10)) < filterDate) || (inventoryItem.expiryDate.slice(0,10) === filterDate) && inventoryItem.item.name.toLowerCase().includes(search.toLowerCase())
-    }))
-  }
+  React.useEffect(() => {
+    const filterInventoryItems = () => {
+      setSelectedInventoryItems(inventoryItems.filter(inventoryItem => {
+        if (!filterValues.dateExpiry && inventoryItem.item.name.toLowerCase().includes(filterValues.searchValue.toLowerCase())) {
+          return inventoryItem
+        } else if (filterValues.searchValue === '' && filterValues.dateExpiry && (((inventoryItem.expiryDate.slice(0, 10)) < filterValues.dateExpiry) || (inventoryItem.expiryDate.slice(0, 10) === filterValues.dateExpiry))) {
+          return inventoryItem
+        } else if (
+          filterValues.searchValue !== '' && 
+          filterValues.dateExpiry &&
+          (((inventoryItem.expiryDate.slice(0, 10)) < filterValues.dateExpiry) || 
+          (inventoryItem.expiryDate.slice(0, 10) === filterValues.dateExpiry)) &&
+          inventoryItem.item.name.toLowerCase().includes(filterValues.searchValue.toLowerCase())) {
+          
+          console.log('item date:', inventoryItem.expiryDate.slice(0, 10))
+          console.log('filter date:', filterValues.dateExpiry)
+          console.log(inventoryItem.item.name.toLowerCase().includes(filterValues.searchValue.toLowerCase()))
+          console.log('name:', inventoryItem.item.name.toLowerCase())
+
+          return inventoryItem
+        }
+      }))
+      // setFilterValues({ dateExpiry: filterDate, searchValue: search })
+    }
+    filterInventoryItems()
+  }, [filterValues, inventoryItems])
+
+
 
   const searchTyping = (e) => {
-    setSearchValue(e.target.value)
-    filterInventoryItems(date, e.target.value)
+    // filterInventoryItems(filterValues.dateExpiry, e.target.value)
+    setFilterValues({ ...filterValues, searchValue: e.target.value })
     console.log(e.target.value)
   }
 
   const dateSelected = (e) => {
-    setDate(e.target.value)
-    filterInventoryItems(e.target.value, searchValue)
+    // filterInventoryItems(e.target.value, filterValues.searchValue)
+    setFilterValues({ ...filterValues, dateExpiry: e.target.value })
     console.log(e.target.value)
   }
 
@@ -66,9 +85,9 @@ function InventoryItems() {
         <div className="container">
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
             {selectedInventoryItems ? (
-              selectedInventoryItems.map(item => ( 
+              selectedInventoryItems.map(item => (
                 <InventoryItemCard
-                  key={item._id} 
+                  key={item._id}
                   name={item.item.name}
                   category={item.item.category}
                   icon={item.item.icon}
