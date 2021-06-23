@@ -24,6 +24,9 @@ function ItemIndex() {
     getData()
   }, [])
 
+  console.log(items)
+  console.log(selectedItems)
+
   const filterItems = (search) => {
     setSelectedItems(items.filter(item => {
       if (item.name.toLowerCase().includes(search.toLowerCase())) {

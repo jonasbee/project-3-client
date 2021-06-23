@@ -10,32 +10,34 @@ const SIZE = 20
 // ! parameters(/props) need to have same name 
 // ! as props in return JSX
 function Pins({ sharedItemsProp, onClick }) {
-  
+  console.log(sharedItemsProp)
   return (
     sharedItemsProp.map(items => {
-      console.log('coordinates:',items[0].user.coordinates[1])
-      console.log('array of items per user:', items)
-      return (
-        <Marker
-          key={`${items[0]._id}`}
-          longitude={Number(`${items[0].user.coordinates[1]}`)}
-          latitude={Number(`${items[0].user.coordinates[0]}`)}
-        >
-          <svg
-            height={SIZE}
-            viewBox="0 0 24 24"
-            style={{
-              cursor: 'pointer',
-              fill: '#d00',
-              stroke: 'none',
-              transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
-            }}
-            onClick={() => onClick(items)}
+      // console.log('coordinates:', items[0].user.coordinates[1])
+      // console.log('array of items per user:', items)
+      if (items.length !== 0) {
+        return (
+          <Marker
+            key={`${items[0]._id}`}
+            longitude={Number(`${items[0].user.coordinates[1]}`)}
+            latitude={Number(`${items[0].user.coordinates[0]}`)}
           >
-            <path d={ICON} />
-          </svg>
-        </Marker>
-      )
+            <svg
+              height={SIZE}
+              viewBox="0 0 24 24"
+              style={{
+                cursor: 'pointer',
+                fill: '#d00',
+                stroke: 'none',
+                transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+              }}
+              onClick={() => onClick(items)}
+            >
+              <path d={ICON} />
+            </svg>
+          </Marker>
+        )
+      }
     })
   )
 }
