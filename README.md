@@ -1,24 +1,7 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
+### ![GA](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png) General Assembly, Software Engineering Immersive
+# Project 3: MERN-stack application
 
-## Update the Proxy Server
+Scope: One week (group of three) to create MERN-stack application.
+Realization: As a registered user you can add food items from stock to your personal inventory. You can then find recipes matching your personal inventory as well as find&share food via a mapbox map (using “React-Map-GL”).
 
-By default, the proxy server is set up to point at port 8000, if you need to do so update in `setupProxy.js` where commented.
-
-## Using NPM
-
-`npm run start` or `npm run dev`  to run the development server
-
-`npm run build` to create a build directory
-
-## Using Yarn
-
-`yarn start` or `yarn dev`  to run the development server
-
-`yarn build` to create a build directory
-
-### ⚠️
-
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+[Here you can find backend Repo](https://github.com/jonasbee/project-3-server/)
