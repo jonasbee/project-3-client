@@ -1,14 +1,10 @@
 import React from 'react'
 import { getAllItems } from '../../lib/api'
 import ItemCard from './ItemCard'
-// import { useForm } from '../../hooks/useForm'
-// import { useHistory } from 'react-router'
-// import { inventoryItem } from '../../lib/api'
 
 function ItemIndex() {
   const [items, setItems] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
-  const [selectedItems, setSelectedItems] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -16,29 +12,16 @@ function ItemIndex() {
         // ? getAllItems GET request from lib
         const { data } = await getAllItems()
         setItems(data)
-        setSelectedItems(data)
       } catch (e) {
-        console.log(e)
+        console.error(e)
       }
     }
     getData()
   }, [])
 
-  console.log(items)
-  console.log(selectedItems)
+  const filteredItems = items
+    .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
 
-  const filterItems = (search) => {
-    setSelectedItems(items.filter(item => {
-      if (item.name.toLowerCase().includes(search.toLowerCase())) {
-        return item
-      } 
-    }))
-  }
-
-  const searchTyping = (e) => {
-    setSearchValue(e.target.value)
-    filterItems(e.target.value)
-  }
 
   return (
     <>
@@ -51,7 +34,12 @@ function ItemIndex() {
           <div className="field-body">
             <div className="field">
               <p className="control">
-                <input className="input" type="search" placeholder="e.g. tomato" onKeyUp={searchTyping} />
+                <input 
+                  className="input" 
+                  type="search" 
+                  placeholder="e.g. tomato" 
+                  onKeyUp={(e) => setSearchValue(e.target.value)}
+                />
               </p>
             </div>
           </div>
@@ -60,8 +48,8 @@ function ItemIndex() {
       <section className='section'>
         <div className='container'>
           <div className="columns is-multiline is-justify-content-space-evenly is-centered">
-            {selectedItems ? (
-              selectedItems.map(item => (
+            {items ? (
+              filteredItems.map(item => (
                 <ItemCard
                   key={item._id}
                   name={item.name}
@@ -77,7 +65,6 @@ function ItemIndex() {
       </section>
     </>
   )
-
 }
 
 export default ItemIndex

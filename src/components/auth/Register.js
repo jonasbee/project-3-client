@@ -19,10 +19,7 @@ function Register() {
     preference: '',
     coordinates: '',
   })
-  // const [isInvalidAddress, setInvalidAddress] = React.useState(false)
-
-  // const [isError, setIsError] = React.useState(false)
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -30,26 +27,9 @@ function Register() {
       await register(formdata)
       history.push('/login')
     } catch (err) {
-      // ! Set to BE api errors
-      console.log(err)
-      console.log('BE Errors: ', err.response.data.message)
-      console.log(err.response.data)
-      console.log(err)
       setFormErrors(err.response.data.errors)
-      // if (err.response.data.errors.coordinates.length === 0) {
-      //   setInvalidAddress(true)
-      // }
     }
   }
-
-  // if (err.response.data.message === 'Address not found') { 
-  //   setFormErrors({ coordinates: 'Path not found' })
-  //   setIsError(true)
-  // } else {
-  //   setFormErrors(err.response.data.errors)
-  // }
-
-  console.log(formErrors)
 
   return (
     <div className="hero" style={{ backgroundImage: `url(${Hero})`, backgroundSize: 'cover' }}>

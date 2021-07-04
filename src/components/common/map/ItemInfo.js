@@ -3,7 +3,6 @@ function ItemInfo({ items }) {
 
   return (
     items.map(item => {
-      console.log(item)
       return (
         <div
           key={`${item._id}`}
@@ -25,5 +24,3 @@ function ItemInfo({ items }) {
 }
 
 export default ItemInfo
-
-// Date.prototype.toLocaleDateString()
